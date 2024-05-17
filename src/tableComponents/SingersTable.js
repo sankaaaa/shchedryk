@@ -1,11 +1,13 @@
 import '../styles/singer-card.css';
-const singerCard = ({singer}) => {
+
+const SingerCard = ({singer}) => {
     return (
         <div className="singer-card">
+            <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`}/>
             <h3>{singer.singer_name} {singer.singer_lastname}</h3>
-            <p>{singer.singer_voice}</p>
+            <p>{singer.voice}</p>
         </div>
     )
 }
 
-export default singerCard;
+export default SingerCard;

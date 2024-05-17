@@ -1,3 +1,16 @@
+.page {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.singer-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
 .singer-card {
     width: 100%;
     padding: 10px;
@@ -6,4 +19,11 @@
     border-radius: 6px;
     position: relative;
     border: black 1px solid;
+}
+
+.singer-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }

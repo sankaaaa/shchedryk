@@ -7,7 +7,7 @@ function App() {
     return (
         <BrowserRouter>
             <nav>
-                <h2>SHCHEDRYK</h2>
+                <h2 className="title">SHCHEDRYK</h2>
                 <Link to="/">Singers</Link>
             </nav>
             <Routes>
