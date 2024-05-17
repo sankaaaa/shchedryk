@@ -1,5 +1,6 @@
 import supabase from "../config/supabaseClient";
 import {useEffect, useState} from "react";
+import SingersTable from "../tableComponents/SingersTable";
 
 const Singers = () => {
     const [fetchError, setFetchError] = useState(null);
@@ -11,12 +12,12 @@ const Singers = () => {
                 .from('singer')
                 .select()
 
-            if(error) {
+            if (error) {
                 setFetchError('Could not fetch singers');
                 setSingers(null);
                 console.log(error);
             }
-            if(data) {
+            if (data) {
                 setSingers(data);
                 setFetchError(null);
             }
@@ -28,9 +29,11 @@ const Singers = () => {
             {fetchError && (<p>{fetchError}</p>)}
             {singers && (
                 <div className="singers">
-                    {singers.map(singer => (
-                        <p>{singer.singer_name}</p>
-                    ))}
+                    <div className="singer-grid">
+                        {singers.map(singer => (
+                            <SingersTable key={singer.id_singer} singer={singer}/>
+                        ))}
+                    </div>
                 </div>
             )}
         </div>

@@ -1,0 +1,9 @@
+.singer-card {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    position: relative;
+    border: black 1px solid;
+}
