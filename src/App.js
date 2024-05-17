@@ -11,7 +11,7 @@ function App() {
                 <Link to="/">Singers</Link>
             </nav>
             <Routes>
-                <Route path="/" element={<Singers />}/>
+                <Route path="/" element={<Singers/>}/>
             </Routes>
         </BrowserRouter>
     );

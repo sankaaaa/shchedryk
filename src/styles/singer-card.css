@@ -12,6 +12,7 @@
 }
 
 .singer-card {
+    display: flex;
     width: 100%;
     padding: 10px;
     background: #fff;
@@ -21,9 +22,20 @@
     border: black 1px solid;
 }
 
+.left-singer-card {
+    flex: 1;
+}
+
+.right-singer-card {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .singer-card img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
 }
