@@ -13,13 +13,22 @@ const SingerCard = ({ singer }) => {
         setIsPopupOpen(false);
     }
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+    };
+
     return (
         <>
             <div className="singer-card" onClick={openPopup}>
                 <div className="left-singer-card">
                     <h3>{singer.singer_name} {singer.singer_lastname}</h3>
                     <p>Voice: {singer.voice}</p>
-                    <p>Date of birth: {singer.date_birth}</p>
+                    <p>Date of birth: {formatDate(singer.date_birth)}</p>
                 </div>
                 <div className="right-singer-card">
                     <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`} />
