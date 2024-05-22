@@ -1,11 +1,11 @@
 .page {
     max-width: 1500px;
-    margin: 20px auto;
     padding: 20px;
+    margin: 0 auto 20px;
 }
 
 .singer-grid {
-    margin-top: 40px;
+    margin-top: 140px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
