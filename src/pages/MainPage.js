@@ -175,12 +175,12 @@ const MainPage = () => {
                         </div>
                     </div>
                 </section>
-                <section className="section">
+                <section className="section" id="section3">
                     <h1>Section 3</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex vel mauris gravida
                         bibendum.</p>
                 </section>
-                <section className="section">
+                <section className="section" id="section4">
                     <h1>Section 4</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex vel mauris gravida
                         bibendum.</p>
