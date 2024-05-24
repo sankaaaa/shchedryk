@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import Singers from "./pages/Singers";
 import Directors from "./pages/Directors";
 import MainPage from "./pages/MainPage";
+import Header from '../src/pageComponents/Header';
 import './App.css';
 
 function App() {
@@ -20,18 +21,12 @@ function App() {
 
     return (
         <BrowserRouter>
-            <nav>
-                <Link to="/" className="title">SHCHEDRYK</Link>
-                <div className={`menu-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                    <div className="hamburger"></div>
-                </div>
-            </nav>
+            <Header toggleMenu={toggleMenu} isOpen={isOpen}/>
             <div className={`menu ${isOpen ? 'open' : ''}`}>
                 <Link to="/singers" onClick={toggleMenu}>Singers</Link>
                 <Link to="/directors" onClick={toggleMenu}>Directors</Link>
             </div>
             <div className={`menu-overlay ${isOpen ? 'open' : ''}`}></div>
-            {/* Додаємо .menu-overlay */}
             <Routes>
                 <Route path="/singers" element={<Singers/>}/>
                 <Route path="/directors" element={<Directors/>}/>
