@@ -172,6 +172,10 @@ header h1 {
     font-size: 18px;
 }
 
+.header-links a:hover {
+    color: #121111;
+}
+
 .header-links {
     display: flex;
     justify-content: space-between;

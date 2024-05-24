@@ -74,7 +74,11 @@ const MainPage = () => {
                                                                     Harmonie festival
                                                                 </h4>
                                                                 <p className="description">
-                                                                    lalalalalllalalalalal
+                                                                    In the days from 9 to 12 May 2024, choirs and folklore
+                                                                    groups with many thousands of participants from all over
+                                                                    the world will once again come to Lindenholzhausen when the
+                                                                    8th HARMONIE FESTIVAL will take place in the "smallest festival
+                                                                    town in Germany".
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -101,7 +105,14 @@ const MainPage = () => {
                                                                     EJCFBasel
                                                                 </h4>
                                                                 <p className="description">
-                                                                    lalalalalalalalalala
+                                                                    The EJCF ranges among the most important meetings
+                                                                    for highly qualified children’s and youth choirs in
+                                                                    the world. Every two years in May (Ascension) ten outstanding choirs
+                                                                    from European countries, one guest choir from a non-European country
+                                                                    and seven selected choirs from Switzerland thrill an audience of
+                                                                    over 30,000 spectators in more than 40 events such as themed concerts,
+                                                                    lunch concerts, open singing sessions for the general public, open-air events,
+                                                                    church services and country portraits.
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -125,13 +136,10 @@ const MainPage = () => {
                                                                 <h4 className="title">
                                                                 <span><i className="fa fa-circle"
                                                                          aria-hidden="true"></i></span>
-                                                                    Carnegie Hall, Shchedryk performance
+                                                                    Carnegie Hall, Notes from Ukraine
                                                                 </h4>
                                                                 <p className="description">
-                                                                    lalalalalalalalalalallalalalalaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                                                                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                                                                    aaaaaaaaaaaaaaaa
-                                                                    aaaaaaaaaaaaaa
+                                                                    “Carol of the Bells” returns to Carnegie Hall 100 years after its North American premiere on this stage, when New York audiences first experienced Ukraine’s unique choral tradition thanks to a historic tour by The Ukrainian Republic Capella. “Carol of the Bells” has since become a worldwide Christmas favorite. Hear it and other beloved Ukrainian carols in a once-in-a-lifetime holiday concert that also features contemporary choral works, a world premiere by composer Trevor Weston, and artists including the Shchedryk Children’s Choir
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -158,7 +166,8 @@ const MainPage = () => {
                                                                     Independence Day concert
                                                                 </h4>
                                                                 <p class="description">
-                                                                    lalalalalalalallalalala
+                                                                    At the end of August, the award-winning children’s choir “Shchedryk” reunited in Denmark with the help of the Danish media Zetland and support from the New Democracy Fund.
+                                                                    The singers in Shchedryk are from 11 to 16 years old. The choir, which is normally based in Kyiv, were planning its 50th anniversary when the war broke out in Ukraine.
                                                                 </p>
                                                             </div>
                                                         </div>

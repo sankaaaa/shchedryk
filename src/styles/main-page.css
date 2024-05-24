@@ -217,6 +217,7 @@ body, html {
     margin-top: 10px;
     color: #121111;
     font-family: "Montserrat", sans-serif;
+    font-weight: bold;
 }
 
 .timeline-content::before {
