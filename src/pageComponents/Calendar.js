@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Calendar = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -50,8 +50,10 @@ const Calendar = () => {
         for (let i = 0; i <= daysOfMonth[currentMonth] + firstDay.getDay() - 1; i++) {
             if (i >= firstDay.getDay()) {
                 days.push(
-                    <div key={i}
-                         className={i - firstDay.getDay() + 1 === currentDate.getDate() && currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() ? 'current-date' : ''}>
+                    <div
+                        key={i}
+                        className={i - firstDay.getDay() + 1 === currentDate.getDate() && currentYear === currentDate.getFullYear() && currentMonth === currentDate.getMonth() ? 'current-date' : ''}
+                    >
                         {i - firstDay.getDay() + 1}
                     </div>
                 );
@@ -63,7 +65,11 @@ const Calendar = () => {
     };
 
     useEffect(() => {
-        setCurrentDate(new Date());
+        const intervalId = setInterval(() => {
+            setCurrentDate(new Date());
+        }, 1000);
+
+        return () => clearInterval(intervalId); // Cleanup the interval on component unmount
     }, []);
 
     return (
@@ -72,13 +78,13 @@ const Calendar = () => {
                 <div className="calendar-header">
                     <span className="month-picker">{monthNames[currentMonth]}</span>
                     <div className="year-picker">
-            <span id="pre-year" onClick={() => setCurrentYear(currentYear - 1)}>
-              &lt;
-            </span>
+                        <span id="pre-year" onClick={() => setCurrentYear(currentYear - 1)}>
+                            &lt;
+                        </span>
                         <span id="year">{currentYear}</span>
                         <span id="next-year" onClick={() => setCurrentYear(currentYear + 1)}>
-              &gt;
-            </span>
+                            &gt;
+                        </span>
                     </div>
                 </div>
                 <div className="calendar-body">

@@ -40,6 +40,17 @@ body, html {
     padding: 20px;
 }
 
+#section3 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    margin-left: 10%;
+    padding: 25px 20px 20px;
+}
+
 .section:nth-child(odd) {
     background: rgba(0, 0, 0, 0.5);
 }
@@ -64,6 +75,10 @@ body, html {
 .third-section-container h1 {
     font-size: 67px;
     font-family: 'Montserrat', sans-serif;
+}
+
+.third-section-container h1 {
+    padding-bottom: 30px;
 }
 
 .first-section-container p {

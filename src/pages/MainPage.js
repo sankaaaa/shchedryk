@@ -213,8 +213,10 @@ const MainPage = () => {
                 </section>
                 <section className="section" id="section3">
                     <div className="third-section-container">
-                        <h1>Section 3</h1>
-                        <Calendar/>
+                        <h1>Calendar</h1>
+                        <div className="content-row">
+                            <Calendar />
+                        </div>
                     </div>
                 </section>
                 <section className="section" id="section4">
