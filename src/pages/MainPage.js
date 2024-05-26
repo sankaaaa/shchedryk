@@ -215,8 +215,8 @@ const MainPage = () => {
                     <div className="third-section-container">
                         <h1>Calendar</h1>
                         <div className="content-row">
-                            <Calendar />
-                            <div>Сюди реєстрацію/лінку на</div>
+                            <Calendar/>
+                            {/*<div>Сюди реєстрацію/лінку на</div>*/}
                         </div>
                     </div>
                 </section>

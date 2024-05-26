@@ -148,7 +148,11 @@ body, html {
     padding-top: 87px;
 }
 
-
+.content-row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
 /*-----------------------------------------------------*/
 .row {
     display: flex;
