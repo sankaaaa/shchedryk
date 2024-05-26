@@ -216,6 +216,7 @@ const MainPage = () => {
                         <h1>Calendar</h1>
                         <div className="content-row">
                             <Calendar />
+                            <div>Сюди реєстрацію/лінку на</div>
                         </div>
                     </div>
                 </section>

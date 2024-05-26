@@ -69,7 +69,7 @@ const Calendar = () => {
             setCurrentDate(new Date());
         }, 1000);
 
-        return () => clearInterval(intervalId); // Cleanup the interval on component unmount
+        return () => clearInterval(intervalId);
     }, []);
 
     return (
