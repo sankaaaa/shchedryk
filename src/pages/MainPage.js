@@ -17,14 +17,14 @@ const MainPage = () => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
-                    if (entry.intersectionRatio < 0.95) {
+                    if (entry.intersectionRatio < 0.90 && isVisible) {
                         setIsVisible(false);
-                    } else {
+                    } else if (entry.intersectionRatio >= 0.90 && !isVisible) {
                         setIsVisible(true);
                     }
                 });
             },
-            {threshold: 0.95}
+            {threshold: 0.90}
         );
 
         if (firstSection) {
@@ -36,7 +36,8 @@ const MainPage = () => {
                 observer.unobserve(firstSection);
             }
         };
-    }, []);
+    }, [isVisible]);
+
 
     return (
         <div className="container">
