@@ -1,0 +1,47 @@
+.skills .container {
+    margin-left: 20px;
+    width: 90%;
+}
+
+h3 {
+    margin: 0;
+    color: #3c312b;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.progress {
+    border-radius: 10px;
+    overflow: visible;
+    background: linear-gradient(to right, lightgray, lightgray);
+    border: 1px solid black;
+    height: 13px;
+    margin-top: 15px;
+    width: 70%;
+    margin-bottom: 14px;
+}
+
+.single-progress-txt {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.percentage {
+    margin-left: 15px;
+}
+
+.progressbar {
+    border-radius: 10px;
+    width: 0;
+    height: 100%;
+    transition: width 1s ease;
+}
+
+
+@media (max-width: 700px) {
+    h3 {
+        font-size: 16px;
+    }
+}

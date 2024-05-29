@@ -21,7 +21,7 @@ function Header({toggleMenu, isOpen}) {
                 <div className="header-links">
                     <a href="#section2" onClick={(e) => handleScroll(e, 'section2')}>History</a>
                     <a href="#section3" onClick={(e) => handleScroll(e, 'section3')}>Calendar</a>
-                    <a href="#section4" onClick={(e) => handleScroll(e, 'section4')}>Section 4</a>
+                    <a href="#section4" onClick={(e) => handleScroll(e, 'section4')}>Repertoire</a>
                 </div>
             )}
             <div className={`menu-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>

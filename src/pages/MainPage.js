@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
+//------import styles
 import "../styles/main-page.css";
 import "../styles/calendar.css";
+//------import images
 import logo from '../images/logo.png';
 import imggermany from '../images/imggermany.JPG';
 import imgbasel from '../images/imgbasel.jpeg';
 import imgdenmark from '../images/imgdenmark.jpeg';
 import imgny from '../images/imgny.jpeg';
+//------import components
 import Calendar from "../pageComponents/Calendar";
+import SkillsSection from "../pageComponents/SkillsSection";
 
 const MainPage = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -55,8 +59,8 @@ const MainPage = () => {
                 <section className="section" id="section2">
                     <div className="second-section-container">
                         <h1>OUR HISTORY</h1>
-                        <div class="experience-content">
-                            <div class="main-timeline">
+                        <div className="experience-content">
+                            <div className="main-timeline">
                                 <ul className="main-timeline">
                                     <li>
                                         <div className="single-timeline-box">
@@ -182,12 +186,12 @@ const MainPage = () => {
                                                     <div className="col-md-7">
                                                         <div className="timeline">
                                                             <div className="timeline-content">
-                                                                <h4 class="title">
-                                                                <span><i class="fa fa-circle"
+                                                                <h4 className="title">
+                                                                <span><i className="fa fa-circle"
                                                                          aria-hidden="true"></i></span>
                                                                     Independence Day concert
                                                                 </h4>
-                                                                <p class="description">
+                                                                <p className="description">
                                                                     At the end of August, the award-winning children’s
                                                                     choir “Shchedryk” reunited in Denmark with the help
                                                                     of the Danish media Zetland and support from the New
@@ -221,10 +225,11 @@ const MainPage = () => {
                         </div>
                     </div>
                 </section>
-                <section className="section" id="section4">
-                    <h1>Section 4</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ex vel mauris gravida
-                        bibendum.</p>
+                <section className="section skills" id="section4">
+                    <div className="fourth-section-container">
+                        <h1>Repertoire</h1>
+                        <SkillsSection/>
+                    </div>
                 </section>
             </div>
         </div>
