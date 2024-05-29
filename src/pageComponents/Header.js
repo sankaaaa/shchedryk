@@ -16,8 +16,8 @@ function Header({toggleMenu, isOpen}) {
 
     return (
         <header>
-            <Link to="/" className="title">SHCHEDRYK</Link>
-            {location.pathname === '/' && (
+            <Link to="/main" className="title">SHCHEDRYK</Link>
+            {location.pathname === '/main' && (
                 <div className="header-links">
                     <a href="#section2" onClick={(e) => handleScroll(e, 'section2')}>History</a>
                     <a href="#section3" onClick={(e) => handleScroll(e, 'section3')}>Calendar</a>
@@ -30,6 +30,5 @@ function Header({toggleMenu, isOpen}) {
         </header>
     );
 }
-
 
 export default Header;

@@ -1,0 +1,89 @@
+.login-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.ibb.co/3FHhLck/img1.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4);
+    z-index: -1;
+}
+
+.login-container form {
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px 45px 40px 25px;
+    border-radius: 10px;
+    border: #B90000 solid 3px;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-container h2 {
+    z-index: 1;
+    color: #fff;
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+
+.login-container form div {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.login-container form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-container form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 35%;
+}
+
+.login-container form button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #B90000;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 25px;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.login-container form button:hover {
+    background-color: #8C0101;
+}
+
+.login-container .error {
+    color: red;
+    min-height: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}

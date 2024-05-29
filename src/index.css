@@ -143,6 +143,10 @@ header {
     padding: 1rem;
 }
 
+#loginLink {
+    padding-top: 175%;
+}
+
 @media (min-width: 1800px) {
     .menu {
         display: none;
