@@ -10,7 +10,7 @@ import imgdenmark from '../images/imgdenmark.jpeg';
 import imgny from '../images/imgny.jpeg';
 //------import components
 import Calendar from "../pageComponents/Calendar";
-import SkillsSection from "../pageComponents/SkillsSection";
+import RepertoireSection from "../pageComponents/RepertoireSection";
 
 const MainPage = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -228,7 +228,7 @@ const MainPage = () => {
                 <section className="section skills" id="section4">
                     <div className="fourth-section-container">
                         <h1>Repertoire</h1>
-                        <SkillsSection/>
+                        <RepertoireSection/>
                     </div>
                 </section>
             </div>

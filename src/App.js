@@ -6,6 +6,7 @@ import Directors from "./pages/Directors";
 import MainPage from "./pages/MainPage";
 import Header from '../src/pageComponents/Header';
 import './App.css';
+import Footer from "./pageComponents/Footer";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/directors" element={<Directors/>}/>
                 <Route path="/" element={<MainPage/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
     );
 }

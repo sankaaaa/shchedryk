@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import "../styles/repertoire.css";
 
-const SkillsSection = () => {
+const RepertoireSection = () => {
     useEffect(() => {
         const progressBars = document.querySelectorAll(".progressbar");
 
@@ -104,4 +104,4 @@ const SkillsSection = () => {
     );
 }
 
-export default SkillsSection;
+export default RepertoireSection;

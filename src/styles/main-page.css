@@ -94,7 +94,8 @@ body, html {
 }
 
 #section4 {
-    top: 0;
+    min-height: 80vh;
+    padding-top: 15vh;
 }
 
 .third-section-container h1 {
