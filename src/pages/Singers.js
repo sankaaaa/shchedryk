@@ -1,10 +1,12 @@
 import supabase from "../config/supabaseClient";
 import {useEffect, useState} from "react";
 import SingersTable from "../tableComponents/SingersTable";
+import {Link} from "react-router-dom";
 
 const Singers = () => {
     const [fetchError, setFetchError] = useState(null);
     const [singers, setSingers] = useState(null);
+    const [userRole, setUserRole] = useState(null);
 
     useEffect(() => {
         const fetchSingers = async () => {
@@ -23,11 +25,21 @@ const Singers = () => {
             }
         }
         fetchSingers();
-    }, [])
+
+        const storedUserRole = localStorage.getItem('userRole');
+        setUserRole(storedUserRole);
+    }, [userRole]);
+    console.log(userRole)
+
     return (
         <div className="page singers">
             {fetchError && (<p>{fetchError}</p>)}
-            <h1>Our singers</h1>
+            <div className="top-singer-block">
+                <h1>Our singers</h1>
+                {userRole && ( // Перевірка наявності користувача
+                    <Link to="/add-singer" className="link-add">Add Singer</Link>
+                )}
+            </div>
             {singers && (
                 <div className="singers">
                     <div className="singer-grid">
@@ -40,4 +52,5 @@ const Singers = () => {
         </div>
     )
 }
+
 export default Singers;
