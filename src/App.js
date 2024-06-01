@@ -12,7 +12,7 @@ function App() {
     const [isOpen, setIsOpen] = useState(false);
     const [authenticated, setAuthenticated] = useState(false);
     const [userRole, setUserRole] = useState(null);
-    const [setUserData] = useState(null);
+    const [userData, setUserData] = useState(null);
 
     useEffect(() => {
         const storedUserRole = localStorage.getItem('userRole');
@@ -47,6 +47,7 @@ function App() {
         setUserRole(null);
         localStorage.removeItem('userRole');
         localStorage.removeItem('userData');
+        window.location.reload();
         return <Navigate to="/main"/>;
     };
 
