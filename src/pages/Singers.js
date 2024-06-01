@@ -27,6 +27,7 @@ const Singers = () => {
     return (
         <div className="page singers">
             {fetchError && (<p>{fetchError}</p>)}
+            <h1>Our singers</h1>
             {singers && (
                 <div className="singers">
                     <div className="singer-grid">

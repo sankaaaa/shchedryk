@@ -71,7 +71,7 @@ function App() {
     );
 }
 
-function RoutesComponent({setAuthenticated, setUserRole}) {
+function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
     const location = useLocation();
 
     return (
@@ -83,7 +83,7 @@ function RoutesComponent({setAuthenticated, setUserRole}) {
                 <Route path="/directors" element={<Directors/>}/>
                 <Route path="/main" element={<MainPage/>}/>
             </Routes>
-            {location.pathname !== '/login' && <Footer/>}
+            {location.pathname !== '/login' && location.pathname !== '/singers' && <Footer/>}
         </>
     );
 }
