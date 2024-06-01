@@ -21,7 +21,7 @@ const Footer = () => {
                     <a href="https://www.instagram.com/shchedryk_choir/" target="_blank" rel="noopener noreferrer">
                         <img src={inst11} alt="instagram"/>
                     </a>
-                    <a href="https://pirates.disney.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://t.me/+UZzjvV3tU2ViMmYy" target="_blank" rel="noopener noreferrer">
                         <img src={tg11} alt="telegram"/>
                     </a>
                     <a href="https://www.facebook.com/search/top/?q=shchedryk%2C%20kyiv%20children%E2%80%99s%20choir"
