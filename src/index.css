@@ -143,8 +143,9 @@ header {
     padding: 1rem;
 }
 
-#loginLink {
-    padding-top: 175%;
+#loginLink,
+.logout-but {
+    padding-top: 170%;
 }
 
 @media (min-width: 1800px) {
@@ -185,4 +186,13 @@ header h1 {
     justify-content: space-between;
     margin-left: 40%;
     width: 30%;
+}
+
+.logout-but {
+    color: white;
+    font-size: 15px;
+    background-color: #333333;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
 }

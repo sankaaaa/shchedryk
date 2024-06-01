@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useLocation} from 'react-router-dom';
 
-function Header({toggleMenu, isOpen}) {
+function Header({toggleMenu, isOpen, userRole}) {
     const location = useLocation();
 
     const handleScroll = (e, targetId) => {
@@ -16,7 +16,14 @@ function Header({toggleMenu, isOpen}) {
 
     return (
         <header>
-            <Link to="/main" className="title">SHCHEDRYK</Link>
+            <div>
+                <Link to="/main" className="title">SHCHEDRYK</Link>
+                {userRole && (
+                    <div className="user-role">
+                        {userRole}
+                    </div>
+                )}
+            </div>
             {location.pathname === '/main' && (
                 <div className="header-links">
                     <a href="#section2" onClick={(e) => handleScroll(e, 'section2')}>History</a>

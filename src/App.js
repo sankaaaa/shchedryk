@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {BrowserRouter, Routes, Route, Link, Navigate, useLocation} from 'react-router-dom';
 import Singers from "./pages/Singers";
 import Directors from "./pages/Directors";
@@ -11,6 +11,22 @@ import Login from "./pages/Login";
 function App() {
     const [isOpen, setIsOpen] = useState(false);
     const [authenticated, setAuthenticated] = useState(false);
+    const [userRole, setUserRole] = useState(null);
+    const [setUserData] = useState(null);
+
+    useEffect(() => {
+        const storedUserRole = localStorage.getItem('userRole');
+        const storedUserData = localStorage.getItem('userData');
+
+        if (storedUserRole) {
+            setUserRole(storedUserRole);
+            setAuthenticated(true);
+        }
+
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -21,29 +37,48 @@ function App() {
         }
     };
 
+    const handleSetUserRole = (role) => {
+        setUserRole(role);
+        localStorage.setItem('userRole', role);
+    };
+
+    const handleLogout = () => {
+        setAuthenticated(false);
+        setUserRole(null);
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userData');
+        return <Navigate to="/main"/>;
+    };
+
     return (
         <BrowserRouter>
-            <Header toggleMenu={toggleMenu} isOpen={isOpen}/>
+            <Header toggleMenu={toggleMenu} isOpen={isOpen} userRole={userRole} handleLogout={handleLogout}/>
             <div className={`menu ${isOpen ? 'open' : ''}`}>
                 <Link to="/main" onClick={toggleMenu}>Main</Link>
                 <Link to="/singers" onClick={toggleMenu}>Singers</Link>
                 <Link to="/directors" onClick={toggleMenu}>Directors</Link>
-                <Link to="/login" id="loginLink" onClick={toggleMenu}>Login</Link>
+                {!userRole && (
+                    <Link to="/login" id="loginLink" onClick={toggleMenu}>Login</Link>
+                )}
+                {userRole && (
+                    <button className="logout-but" onClick={handleLogout}>Logout</button>
+                )}
             </div>
             <div className={`menu-overlay ${isOpen ? 'open' : ''}`}></div>
-            <RoutesComponent authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+            <RoutesComponent authenticated={authenticated} setAuthenticated={setAuthenticated}
+                             setUserRole={handleSetUserRole}/>
         </BrowserRouter>
     );
 }
 
-function RoutesComponent({authenticated, setAuthenticated}) {
+function RoutesComponent({setAuthenticated, setUserRole}) {
     const location = useLocation();
 
     return (
         <>
             <Routes>
                 <Route path="/" element={<Navigate to="/main"/>}/>
-                <Route path="/login" element={<Login setAuthenticated={setAuthenticated}/>}/>
+                <Route path="/login" element={<Login setAuthenticated={setAuthenticated} setUserRole={setUserRole}/>}/>
                 <Route path="/singers" element={<Singers/>}/>
                 <Route path="/directors" element={<Directors/>}/>
                 <Route path="/main" element={<MainPage/>}/>
