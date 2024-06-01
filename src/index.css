@@ -127,7 +127,7 @@ header {
     height: 100%;
     width: 250px;
     transition: right 0.3s ease;
-    padding-top: 100px;
+    padding-top: 90px;
     text-align: center;
     z-index: 1000;
 }
@@ -145,7 +145,7 @@ header {
 
 #loginLink,
 .logout-but {
-    padding-top: 170%;
+    padding-top: 175%;
 }
 
 @media (min-width: 1800px) {

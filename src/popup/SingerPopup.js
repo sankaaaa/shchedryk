@@ -18,6 +18,7 @@ const SingerPopup = ({singer, closePopup}) => {
                         <h2>{singer.singer_lastname} {singer.singer_name} {singer.singer_patron}</h2>
                         <p>Voice: {singer.voice}</p>
                         <p>Date of birth: {formatDate(singer.date_birth)}</p>
+                        <p>About me: {singer.singer_bio}</p>
                     </div>
                     <div className="popup-image">
                         <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`}/>
