@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter, Routes, Route, Link, Navigate, useLocation} from 'react-router-dom';
 import Singers from "./pages/Singers";
 import Directors from "./pages/Directors";
+import RehearsalSigning from "./pages/RehearsalSigning";
 import MainPage from "./pages/MainPage";
 import Header from './pageComponents/Header';
 import './App.css';
@@ -58,6 +59,7 @@ function App() {
                 <Link to="/main" onClick={toggleMenu}>Main</Link>
                 <Link to="/singers" onClick={toggleMenu}>Singers</Link>
                 <Link to="/directors" onClick={toggleMenu}>Directors</Link>
+                <Link to="/rehearsalSigning" onClick={toggleMenu}>Rehearsal Signing</Link>
                 {!userRole && (
                     <Link to="/login" id="loginLink" onClick={toggleMenu}>Login</Link>
                 )}
@@ -82,6 +84,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/login" element={<Login setAuthenticated={setAuthenticated} setUserRole={setUserRole}/>}/>
                 <Route path="/singers" element={<Singers/>}/>
                 <Route path="/directors" element={<Directors/>}/>
+                <Route path="/rehearsalSigning" element={<RehearsalSigning/>}/>
                 <Route path="/main" element={<MainPage/>}/>
             </Routes>
             {location.pathname !== '/login' && location.pathname !== '/singers' && <Footer/>}

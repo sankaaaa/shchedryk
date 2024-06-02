@@ -36,12 +36,12 @@ const RepertoireSection = () => {
                     <div className="progress">
                         <div
                             className="progress-bar progressbar"
-                            aria-valuenow="80"
+                            aria-valuenow="45"
                             aria-valuemin="0"
                             aria-valuemax="100"
                         ></div>
                     </div>
-                    <h3 className="percentage">80%</h3>
+                    <h3 className="percentage">45%</h3>
                 </div>
             </div>
             <div className="barWrapper">
@@ -50,12 +50,12 @@ const RepertoireSection = () => {
                     <div className="progress">
                         <div
                             className="progress-bar progressbar"
-                            aria-valuenow="88"
+                            aria-valuenow="60"
                             aria-valuemin="0"
                             aria-valuemax="100"
                         ></div>
                     </div>
-                    <h3 className="percentage">88%</h3>
+                    <h3 className="percentage">60%</h3>
                 </div>
             </div>
             <div className="barWrapper">
@@ -64,12 +64,12 @@ const RepertoireSection = () => {
                     <div className="progress">
                         <div
                             className="progress-bar progressbar"
-                            aria-valuenow="95"
+                            aria-valuenow="30"
                             aria-valuemin="0"
                             aria-valuemax="100"
                         ></div>
                     </div>
-                    <h3 className="percentage">95%</h3>
+                    <h3 className="percentage">30%</h3>
                 </div>
             </div>
             <div className="barWrapper">
@@ -78,12 +78,12 @@ const RepertoireSection = () => {
                     <div className="progress">
                         <div
                             className="progress-bar progressbar"
-                            aria-valuenow="50"
+                            aria-valuenow="25"
                             aria-valuemin="0"
                             aria-valuemax="100"
                         ></div>
                     </div>
-                    <h3 className="percentage">50%</h3>
+                    <h3 className="percentage">25%</h3>
                 </div>
             </div>
             <div className="barWrapper">
