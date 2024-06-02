@@ -1,6 +1,15 @@
+import { useState, useEffect } from 'react';
 import '../styles/popup.css';
+import supabase from "../config/supabaseClient";
 
-const SingerPopup = ({singer, closePopup}) => {
+const SingerPopup = ({ singer, closePopup }) => {
+    const [userRole, setUserRole] = useState(null);
+
+    useEffect(() => {
+        const userRoleFromLocalStorage = localStorage.getItem('userRole');
+        setUserRole(userRoleFromLocalStorage);
+    }, []);
+
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-GB', {
@@ -8,6 +17,25 @@ const SingerPopup = ({singer, closePopup}) => {
             month: 'long',
             year: 'numeric'
         });
+    };
+
+    const handleDelete = async () => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this singer?");
+
+        if (confirmDelete) {
+            const { error } = await supabase
+                .from('singer')
+                .delete()
+                .eq('id_singer', singer.id_singer);
+
+            if (error) {
+                console.error("Error deleting singer:", error.message);
+            } else {
+                console.log("Singer deleted successfully");
+                closePopup();
+                window.location.reload();
+            }
+        }
     };
 
     return (
@@ -19,12 +47,15 @@ const SingerPopup = ({singer, closePopup}) => {
                         <p>Voice: {singer.voice}</p>
                         <p>Date of birth: {formatDate(singer.date_birth)}</p>
                         <p>About me: {singer.singer_bio}</p>
+                        {userRole && <button id="delete-but" onClick={handleDelete}>Delete Singer</button>}
                     </div>
                     <div className="popup-image">
-                        <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`}/>
+                        <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`} />
                     </div>
                 </div>
-                <button onClick={closePopup}>❌</button>
+                <div>
+                    <button className="close-popup" onClick={closePopup}>❌</button>
+                </div>
             </div>
         </div>
     );
