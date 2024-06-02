@@ -1,15 +1,15 @@
-.rehearsal_signing-container {
+.add_singer-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     overflow: hidden;
-    padding-top: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-.rehearsal_signing-container::before {
+.add_singer-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -23,7 +23,7 @@
     z-index: -1;
 }
 
-.rehearsal_signing-container form {
+.add_singer-container form {
     z-index: 1;
     background: rgba(255, 255, 255, 0.8);
     padding: 20px 45px 40px 25px;
@@ -35,27 +35,29 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    min-width: 500px;
 }
 
-.rehearsal_signing-container h2 {
+.add_singer-container h2 {
     z-index: 1;
     color: #fff;
     padding-bottom: 30px;
     font-size: 30px;
 }
 
-.rehearsal_signing-container form div {
+.add_singer-container form div {
     margin-bottom: 15px;
     width: 100%;
 }
 
-.rehearsal_signing-container form label {
+.add_singer-container form label {
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.rehearsal_signing-container form input,
-.rehearsal_signing-container form select {
+.add_singer-container form input,
+.add_singer-container form textarea,
+.add_singer-container form select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -63,11 +65,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.rehearsal_signing-container form select {
+.add_singer-container form select {
     width: 106%;
 }
 
-.rehearsal_signing-container form button {
+.add_singer-container form button {
     padding: 15px 30px;
     border: none;
     border-radius: 5px;
@@ -78,9 +80,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 14px;
+    margin-top: 20px;
 }
 
-.rehearsal_signing-container form button:hover {
+.add_singer-container form button:hover {
     background-color: #8C0101;
 }
 
