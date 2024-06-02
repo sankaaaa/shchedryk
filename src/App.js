@@ -8,6 +8,7 @@ import Header from './pageComponents/Header';
 import './App.css';
 import Footer from "./pageComponents/Footer";
 import Login from "./pages/Login";
+import AddSinger from "./pages/AddSinger";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -86,8 +87,10 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/directors" element={<Directors/>}/>
                 <Route path="/rehearsalSigning" element={<RehearsalSigning/>}/>
                 <Route path="/main" element={<MainPage/>}/>
+                <Route path="/add-singer" element={<AddSinger/>}/>
             </Routes>
-            {location.pathname !== '/login' && location.pathname !== '/singers' && <Footer/>}
+            {location.pathname !== '/login' && location.pathname !== '/singers' && location.pathname !== '/add-singer' &&
+                <Footer/>}
         </>
     );
 }
