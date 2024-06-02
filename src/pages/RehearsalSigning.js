@@ -35,9 +35,24 @@ const RehearsalSigning = () => {
         const formObject = Object.fromEntries(formData.entries());
         formObject.selectedDate = selectedDate;
 
-        console.log(formObject);
+        const { error } = await supabase
+            .from('rehearsal_signings')
+            .insert([
+                {
+                    user_name: formObject.name,
+                    user_surname: formObject.surname,
+                    user_patronymic: formObject.patronymic,
+                    user_email: formObject.email,
+                    user_phone_num: formObject.phone,
+                    chosen_rehearsal: selectedDate
+                }
+            ]);
 
-        setSubmitted(true);
+        if (error) {
+            console.error('Error inserting data:', error);
+        } else {
+            setSubmitted(true);
+        }
     };
     const handleBackToMainPage = () => {
         navigate('/main');

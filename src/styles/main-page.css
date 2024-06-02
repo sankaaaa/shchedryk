@@ -308,7 +308,69 @@ body, html {
     font-family: "Montserrat", sans-serif;
     text-align: left;
 }
+.section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.third-section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Відступ між календарем і кнопками */
+}
+
+.button-container {
+    flex: 2; /* Контейнер для кнопок займає дві третини */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-button {
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    width: 80%; /* Ширина кнопок */
+    margin: 10px 0; /* Відступ між кнопками */
+    border: 2px solid transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.white-button {
+    background-color: #ffffff;
+    color: #333;
+    border-color: #333;
+}
+
+.white-button:hover {
+    background-color: #333;
+    color: #ffffff;
+}
+
+.red-button {
+    background-color: #B90000;
+    color: #ffffff;
+    border-color: #B90000;
+}
+
+.red-button:hover {
+    background-color: #8C0101;
+    border-color: #8C0101;
+}
 @media (max-width: 768px) {
     .single-timeline-box {
         width: 100%;
