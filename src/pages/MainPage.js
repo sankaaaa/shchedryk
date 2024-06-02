@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 //------import styles
 import "../styles/main-page.css";
 import "../styles/calendar.css";
@@ -14,6 +15,7 @@ import RepertoireSection from "../pageComponents/RepertoireSection";
 
 const MainPage = () => {
     const [isVisible, setIsVisible] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const firstSection = document.getElementById('section1');
@@ -42,6 +44,9 @@ const MainPage = () => {
         };
     }, [isVisible]);
 
+    const handleRedButtonClick = () => {
+        navigate('/rehearsalSigning');
+    };
 
     return (
         <div className="container">
@@ -221,7 +226,11 @@ const MainPage = () => {
                         <h1>Calendar</h1>
                         <div className="content-row">
                             <Calendar/>
-                            {/*<div>Сюди реєстрацію/лінку на</div>*/}
+                            <div className="button-container">
+                                <button className="big-button white-button">See our concert schedule</button>
+                                <button className="big-button white-button">How rehearsals are going?</button>
+                                <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a trial rehearsal</button>
+                            </div>
                         </div>
                     </div>
                 </section>
