@@ -1,0 +1,49 @@
+.centered-box-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('https://i.ibb.co/3FHhLck/img1.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(1);
+}
+
+.centered-box {
+    z-index: 1;
+    background: #ffffff;
+    padding: 60px;
+    border-radius: 10px;
+    border: 3px solid #000000;
+    text-align: center;
+    max-width: 800px;
+    width: 80%;
+}
+
+.centered-box h2 {
+    font-size: 30px;
+    color: #B90000;
+    margin-bottom: 20px;
+}
+
+.centered-box p {
+    font-size: 18px;
+    color: black;
+}
+.highlight-dot {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #B90000;
+    border-radius: 50%;
+    display: inline-block;
+}
+.centered-box .red-paragraph {
+    color: #B90000;
+}

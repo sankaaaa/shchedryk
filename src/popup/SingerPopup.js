@@ -9,7 +9,6 @@ const SingerPopup = ({ singer, closePopup }) => {
         const userRoleFromLocalStorage = localStorage.getItem('userRole');
         setUserRole(userRoleFromLocalStorage);
     }, []);
-
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-GB', {
@@ -18,7 +17,6 @@ const SingerPopup = ({ singer, closePopup }) => {
             year: 'numeric'
         });
     };
-
     const handleDelete = async () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this singer?");
 
@@ -27,7 +25,6 @@ const SingerPopup = ({ singer, closePopup }) => {
                 .from('singer')
                 .delete()
                 .eq('id_singer', singer.id_singer);
-
             if (error) {
                 console.error("Error deleting singer:", error.message);
             } else {
@@ -37,7 +34,6 @@ const SingerPopup = ({ singer, closePopup }) => {
             }
         }
     };
-
     return (
         <div className="popup-overlay" onClick={closePopup}>
             <div className="popup-content" onClick={(e) => e.stopPropagation()}>

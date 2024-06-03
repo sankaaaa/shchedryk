@@ -3,8 +3,10 @@ import {BrowserRouter, Routes, Route, Link, Navigate, useLocation} from 'react-r
 import Singers from "./pages/Singers";
 import Directors from "./pages/Directors";
 import RehearsalSigning from "./pages/RehearsalSigning";
+import RehearsalDescription from "./pages/RehearsalDescription"
 import MainPage from "./pages/MainPage";
 import Header from './pageComponents/Header';
+
 import './App.css';
 import Footer from "./pageComponents/Footer";
 import Login from "./pages/Login";
@@ -87,6 +89,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/directors" element={<Directors/>}/>
                 <Route path="/rehearsalSigning" element={<RehearsalSigning/>}/>
                 <Route path="/main" element={<MainPage/>}/>
+                <Route path="/rehearsalDescription" element={<RehearsalDescription/>}/>
                 <Route path="/add-singer" element={<AddSinger/>}/>
             </Routes>
             {location.pathname !== '/login' && location.pathname !== '/singers' && location.pathname !== '/add-singer' &&
