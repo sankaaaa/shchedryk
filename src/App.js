@@ -89,6 +89,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/rehearsalSigning" element={<RehearsalSigning/>}/>
                 <Route path="/main" element={<MainPage/>}/>
                 <Route path="/rehearsalDescription" element={<RehearsalDescription/>}/>
+                <Route path="/add-singer" element={<AddSinger/>}/>
             </Routes>
             {location.pathname !== '/login' && location.pathname !== '/singers' && <Footer/>}
         </>
