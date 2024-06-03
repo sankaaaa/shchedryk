@@ -11,6 +11,7 @@ import './App.css';
 import Footer from "./pageComponents/Footer";
 import Login from "./pages/Login";
 import AddSinger from "./pages/AddSinger";
+import EditSinger from "./pages/EditSinger";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -91,6 +92,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/main" element={<MainPage/>}/>
                 <Route path="/rehearsalDescription" element={<RehearsalDescription/>}/>
                 <Route path="/add-singer" element={<AddSinger/>}/>
+                <Route path="/singers/:id_singer" element={<EditSinger/>}/>
             </Routes>
             {location.pathname !== '/login' && location.pathname !== '/singers' && location.pathname !== '/add-singer' &&
                 <Footer/>}

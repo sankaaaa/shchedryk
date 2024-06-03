@@ -1,16 +1,27 @@
 .filter-button {
     padding: 10px 20px;
     margin-left: 10px;
-    background-color: #000;
+    background-color: #121111;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .filter-button:hover {
     background-color: #333;
+}
+
+.link-add {
+    padding: 7px 11px;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
 .filter-window {

@@ -58,10 +58,12 @@ const Singers = () => {
             {fetchError && (<p>{fetchError}</p>)}
             <div className="top-singer-block">
                 <h1>Our singers</h1>
-                {userRole && (
-                    <Link to="/add-singer" className="link-add">Add Singer</Link>
-                )}
-                <button className="filter-button" onClick={handleOpenFilterWindow}>Filter</button>
+                <div className="button-group">
+                    {userRole && (
+                        <Link to="/add-singer" className="link-add">Add Singer</Link>
+                    )}
+                    <button className="filter-button" onClick={handleOpenFilterWindow}>Filter</button>
+                </div>
                 {showFilterWindow && (
                     <div className="filter-window">
                         <h3>Chose your filter option</h3>
