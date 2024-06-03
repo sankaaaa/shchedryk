@@ -48,6 +48,11 @@ const MainPage = () => {
         navigate('/rehearsalSigning');
     };
 
+    const handleSecondButtonClick = () => {
+        navigate('/rehearsalDescription');
+    };
+
+
     return (
         <div className="container">
             <div className="background-image"></div>
@@ -228,7 +233,7 @@ const MainPage = () => {
                             <Calendar/>
                             <div className="button-container">
                                 <button className="big-button white-button">See our concert schedule</button>
-                                <button className="big-button white-button">How rehearsals are going?</button>
+                                <button className="big-button white-button" onClick={handleSecondButtonClick}>How rehearsals are going?</button>
                                 <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a trial rehearsal</button>
                             </div>
                         </div>
