@@ -2,17 +2,18 @@ import supabase from "../config/supabaseClient";
 import {useEffect, useState} from "react";
 import {useNavigate} from 'react-router-dom';
 import "../styles/rehearsalSigning.css";
+
 const RehearsalSigning = () => {
- const [dates, setDates] = useState([]);
- const [selectedDate, setSelectedDate] = useState('');
- const [submitted, setSubmitted] = useState(false);
- const navigate = useNavigate();
+    const [dates, setDates] = useState([]);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+    const navigate = useNavigate();
     useEffect(() => {
         fetchRehearsalDates();
     }, []);
 
     const fetchRehearsalDates = async () => {
-        const { data, error } = await supabase
+        const {data, error} = await supabase
             .from('rehearsal')
             .select('date')
             .gt('date', new Date().toISOString());
@@ -25,7 +26,7 @@ const RehearsalSigning = () => {
     };
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        const options = { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' };
+        const options = {day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit'};
         return date.toLocaleString('en-GB', options).replace(',', ' at');
     };
     const handleSubmit = async (event) => {
@@ -65,23 +66,23 @@ const RehearsalSigning = () => {
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor="name">Name</label>
-                            <input type="text" id="name" name="name" required />
+                            <input type="text" id="name" name="name" required/>
                         </div>
                         <div>
                             <label htmlFor="surname">Surname</label>
-                            <input type="text" id="surname" name="surname" required />
+                            <input type="text" id="surname" name="surname" required/>
                         </div>
                         <div>
                             <label htmlFor="patronymic">Patronymic</label>
-                            <input type="text" id="patronymic" name="patronymic" required />
+                            <input type="text" id="patronymic" name="patronymic" required/>
                         </div>
                         <div>
                             <label htmlFor="email">E-mail</label>
-                            <input type="email" id="email" name="email" required />
+                            <input type="email" id="email" name="email" required/>
                         </div>
                         <div>
                             <label htmlFor="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required />
+                            <input type="tel" id="phone" name="phone" required/>
                         </div>
                         <div>
                             <label htmlFor="date">Preferred Rehearsal Date</label>
@@ -105,7 +106,8 @@ const RehearsalSigning = () => {
                 </>
             ) : (
                 <div className="submitted-message">
-                    <p>You've been successfully signed for a trial rehearsal, we'll contact you via e-mail or call you later on!</p>
+                    <p>You've been successfully signed for a trial rehearsal, we'll contact you via e-mail or call you
+                        later on!</p>
                     <button onClick={handleBackToMainPage}>Back to main page</button>
                 </div>
             )}

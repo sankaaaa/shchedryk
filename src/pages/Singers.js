@@ -58,7 +58,7 @@ const Singers = () => {
             {fetchError && (<p>{fetchError}</p>)}
             <div className="top-singer-block">
                 <h1>Our singers</h1>
-                {userRole && ( // Перевірка наявності користувача
+                {userRole && (
                     <Link to="/add-singer" className="link-add">Add Singer</Link>
                 )}
                 <button className="filter-button" onClick={handleOpenFilterWindow}>Filter</button>

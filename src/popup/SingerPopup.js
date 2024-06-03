@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import '../styles/popup.css';
-
 import supabase from "../config/supabaseClient";
 
 const SingerPopup = ({ singer, closePopup }) => {
@@ -26,7 +25,6 @@ const SingerPopup = ({ singer, closePopup }) => {
                 .from('singer')
                 .delete()
                 .eq('id_singer', singer.id_singer);
-
             if (error) {
                 console.error("Error deleting singer:", error.message);
             } else {
