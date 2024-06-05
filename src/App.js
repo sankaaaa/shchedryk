@@ -12,6 +12,8 @@ import Footer from "./pageComponents/Footer";
 import Login from "./pages/Login";
 import AddSinger from "./pages/AddSinger";
 import EditSinger from "./pages/EditSinger";
+import AddDirector from "./pages/AddDirector";
+import EditDirector from "./pages/EditDirector";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -93,6 +95,8 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/rehearsalDescription" element={<RehearsalDescription/>}/>
                 <Route path="/add-singer" element={<AddSinger/>}/>
                 <Route path="/singers/:id_singer" element={<EditSinger/>}/>
+                <Route path="/add-director" element={<AddDirector/>}/>
+                <Route path="/directors/:id_dir" element={<EditDirector/>}/>
             </Routes>
             {location.pathname !== '/login' && location.pathname !== '/singers' && location.pathname !== '/add-singer' &&
                 location.pathname !== '/directors' && <Footer/>}
