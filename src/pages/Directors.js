@@ -40,7 +40,7 @@ const Directors = () => {
                 <h1>Our directors</h1>
                 <div className="button-group">
                     {userRole && (
-                        <Link to="/add-singer" className="link-add">Add Director</Link>
+                        <Link to="/add-director" className="link-add">Add Director</Link>
                     )}
                 </div>
             </div>

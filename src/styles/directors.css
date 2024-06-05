@@ -89,3 +89,32 @@
 .director-card p {
     margin: 25px 0;
 }
+
+#edit-but-dir {
+    width: 100px;
+    font-family: 'Montserrat', sans-serif;
+    border: darkgray solid 1px;
+    border-radius: 10px;
+    padding: 5px 12px;
+    cursor: pointer;
+}
+
+#edit-but-dir:hover {
+    background-color: lightgray;
+}
+
+#delete-but-dir {
+    background-color: #B90000;
+    width: 100px;
+    margin-left: 20px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 7px;
+    cursor: pointer;
+}
+
+#delete-but-dir:hover {
+    background-color: #8C0101;
+}
