@@ -4,6 +4,13 @@ import {useNavigate} from 'react-router-dom';
 import "../styles/rehearsalDescription.css";
 
 const RehearsalDescription = () => {
+
+    const navigate = useNavigate();
+
+    const handleBackToMenu = () => {
+        navigate('/main');
+    };
+
     return (
         <div className="centered-box-container">
             <div className="centered-box">
@@ -25,6 +32,7 @@ const RehearsalDescription = () => {
                     on our site, we hope that you will like our work, and understand the main reason we are participating in all that -
                     we love to sing!)))
                 </p>
+                <button onClick={handleBackToMenu} className="back-button">Back to Menu</button>
             </div>
         </div>
     );

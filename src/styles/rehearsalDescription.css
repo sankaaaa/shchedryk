@@ -47,3 +47,18 @@
 .centered-box .red-paragraph {
     color: #B90000;
 }
+.back-button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background-color: #333333;
+}
