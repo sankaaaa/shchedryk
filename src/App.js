@@ -4,8 +4,11 @@ import Singers from "./pages/Singers";
 import Directors from "./pages/Directors";
 import RehearsalSigning from "./pages/RehearsalSigning";
 import RehearsalDescription from "./pages/RehearsalDescription"
+import TrialRehearsalList from "./pages/TrialRehearsalList";
 import MainPage from "./pages/MainPage";
 import Header from './pageComponents/Header';
+
+
 
 import './App.css';
 import Footer from "./pageComponents/Footer";
@@ -65,7 +68,13 @@ function App() {
                 <Link to="/main" onClick={toggleMenu}>Main</Link>
                 <Link to="/singers" onClick={toggleMenu}>Singers</Link>
                 <Link to="/directors" onClick={toggleMenu}>Directors</Link>
+                {!userRole && (
                 <Link to="/rehearsalSigning" onClick={toggleMenu}>Rehearsal Signing</Link>
+                )}
+                {userRole && (
+                    <Link to="/trialRehearsals"  onClick={toggleMenu}>Trial Rehearsals</Link>
+                )
+                }
                 {!userRole && (
                     <Link to="/login" id="loginLink" onClick={toggleMenu}>Login</Link>
                 )}
@@ -93,6 +102,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/rehearsalSigning" element={<RehearsalSigning/>}/>
                 <Route path="/main" element={<MainPage/>}/>
                 <Route path="/rehearsalDescription" element={<RehearsalDescription/>}/>
+                <Route path="/trialRehearsals" element={<TrialRehearsalList/>}/>
                 <Route path="/add-singer" element={<AddSinger/>}/>
                 <Route path="/singers/:id_singer" element={<EditSinger/>}/>
                 <Route path="/add-director" element={<AddDirector/>}/>
