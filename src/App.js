@@ -95,7 +95,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/singers/:id_singer" element={<EditSinger/>}/>
             </Routes>
             {location.pathname !== '/login' && location.pathname !== '/singers' && location.pathname !== '/add-singer' &&
-                <Footer/>}
+                location.pathname !== '/directors' && <Footer/>}
         </>
     );
 }
