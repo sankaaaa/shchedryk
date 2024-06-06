@@ -23,6 +23,7 @@ const Login = ({setAuthenticated, setUserRole}) => {
                 setAuthenticated(true);
                 setUserRole(directorData.role);
                 localStorage.setItem('userRole', directorData.role);
+                localStorage.setItem('userId', directorData.id_dir);
                 localStorage.setItem('userData', JSON.stringify(directorData));
                 navigate('/main');
                 return;
@@ -39,6 +40,7 @@ const Login = ({setAuthenticated, setUserRole}) => {
                 setAuthenticated(true);
                 setUserRole(adminData.login);
                 localStorage.setItem('userRole', adminData.login);
+                localStorage.setItem('userId', adminData.id_admin);
                 localStorage.setItem('userData', JSON.stringify(adminData));
                 navigate('/main');
                 return;

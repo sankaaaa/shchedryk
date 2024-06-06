@@ -9,7 +9,6 @@ import MainPage from "./pages/MainPage";
 import Header from './pageComponents/Header';
 
 
-
 import './App.css';
 import Footer from "./pageComponents/Footer";
 import Login from "./pages/Login";
@@ -17,6 +16,7 @@ import AddSinger from "./pages/AddSinger";
 import EditSinger from "./pages/EditSinger";
 import AddDirector from "./pages/AddDirector";
 import EditDirector from "./pages/EditDirector";
+import MyPage from "./pages/MyPage";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -69,10 +69,14 @@ function App() {
                 <Link to="/singers" onClick={toggleMenu}>Singers</Link>
                 <Link to="/directors" onClick={toggleMenu}>Directors</Link>
                 {!userRole && (
-                <Link to="/rehearsalSigning" onClick={toggleMenu}>Rehearsal Signing</Link>
+                    <Link to="/rehearsalSigning" onClick={toggleMenu}>Rehearsal Signing</Link>
                 )}
                 {userRole && (
-                    <Link to="/trialRehearsals"  onClick={toggleMenu}>Trial Rehearsals</Link>
+                    <Link to="/trialRehearsals" onClick={toggleMenu}>Trial Rehearsals</Link>
+                )
+                }
+                {userRole && (
+                    <Link to="/my-page" onClick={toggleMenu}>My Page</Link>
                 )
                 }
                 {!userRole && (
@@ -107,6 +111,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/singers/:id_singer" element={<EditSinger/>}/>
                 <Route path="/add-director" element={<AddDirector/>}/>
                 <Route path="/directors/:id_dir" element={<EditDirector/>}/>
+                <Route path="/my-page" element={<MyPage/>}/>
             </Routes>
             {location.pathname === '/main' && <Footer/>}
         </>

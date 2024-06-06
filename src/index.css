@@ -145,7 +145,7 @@ header {
 
 #loginLink,
 .logout-but {
-    padding-top: 160%;
+    margin-top: 140%;
 }
 
 @media (min-width: 1800px) {
