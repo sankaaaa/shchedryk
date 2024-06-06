@@ -1,0 +1,81 @@
+.my-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    padding: 100px 40px 40px;
+}
+
+.user-info {
+    flex: 1;
+    padding-right: 150px;
+}
+
+.user-info p {
+    margin: 5px 0;
+    padding-bottom: 10px;
+}
+
+.user-info .highlight {
+    color: #8C0101;
+}
+
+.user-photo {
+    flex: 0 0 450px;
+    text-align: center;
+}
+
+.user-photo img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.change-password {
+    margin-top: 20px;
+}
+
+.change-password h2 {
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.change-password form {
+    display: flex;
+    flex-direction: column;
+}
+
+.change-password label {
+    margin-bottom: 5px;
+}
+
+.change-password input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-left: 20px;
+}
+
+.change-password button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #B90000;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    max-width: 20%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.change-password button:hover {
+    background-color: #8C0101;
+}
+
+.error {
+    color: #8C0101;
+}
+
+.success {
+    color: darkgreen;
+}
