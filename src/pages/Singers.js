@@ -41,18 +41,20 @@ const Singers = () => {
         setShowFilterWindow(false);
     };
     const handleFilterByVoice = async (voice) => {
-        const { data, error } = await supabase
-            .from('singer')
-            .select()
-            .filter(voice === 'All' ? null : { 'voice': 'eq.' + voice });
+        try {
+            let data;
+            if (voice === 'All') {
+                ({ data } = await supabase.from('singer').select());
+            } else {
+                ({ data } = await supabase.from('singer').select().eq('voice', voice));
+            }
 
-        if (error) {
+            setSingers(data);
+        } catch (error) {
             console.error('Error filtering singers by voice:', error.message);
-            return;
         }
-
-        setSingers(data);
     };
+
     return (
         <div className="page singers">
             {fetchError && (<p>{fetchError}</p>)}
