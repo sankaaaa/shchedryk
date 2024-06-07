@@ -23,7 +23,6 @@ const SingerPopup = ({ singer, closePopup }) => {
 
     const handleDelete = async () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this singer?");
-
         if (confirmDelete) {
             const { error } = await supabase
                 .from('singer')

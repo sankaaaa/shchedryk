@@ -1,0 +1,23 @@
+.signup-card {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.signup-card:hover {
+    background: #f9f9f9;
+}
+
+.left-signup-card,
+.right-signup-card {
+    flex: 1;
+}
+
+.right-signup-card {
+    text-align: right;
+}
