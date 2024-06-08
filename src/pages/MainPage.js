@@ -48,6 +48,10 @@ const MainPage = () => {
         navigate('/rehearsalSigning');
     };
 
+    const handleFirstButtonClick = () => {
+        navigate('/concertSchedule');
+    };
+
     const handleSecondButtonClick = () => {
         navigate('/rehearsalDescription');
     };
@@ -232,7 +236,7 @@ const MainPage = () => {
                         <div className="content-row">
                             <Calendar/>
                             <div className="button-container">
-                                <button className="big-button white-button">See our concert schedule</button>
+                                <button className="big-button white-button" onClick={handleFirstButtonClick}>See our concert schedule</button>
                                 <button className="big-button white-button" onClick={handleSecondButtonClick}>How rehearsals are going?</button>
                                 <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a trial rehearsal</button>
                             </div>

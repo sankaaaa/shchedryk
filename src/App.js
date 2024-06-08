@@ -7,7 +7,7 @@ import RehearsalDescription from "./pages/RehearsalDescription"
 import TrialRehearsalList from "./pages/TrialRehearsalList";
 import MainPage from "./pages/MainPage";
 import Header from './pageComponents/Header';
-
+import ConcertSchedule from "./pages/ConcertSchedule"
 
 import './App.css';
 import Footer from "./pageComponents/Footer";
@@ -107,6 +107,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/main" element={<MainPage/>}/>
                 <Route path="/rehearsalDescription" element={<RehearsalDescription/>}/>
                 <Route path="/trialRehearsals" element={<TrialRehearsalList/>}/>
+                <Route path="/concertSchedule" element={<ConcertSchedule/>}/>
                 <Route path="/add-singer" element={<AddSinger/>}/>
                 <Route path="/singers/:id_singer" element={<EditSinger/>}/>
                 <Route path="/add-director" element={<AddDirector/>}/>
