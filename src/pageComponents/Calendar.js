@@ -1,26 +1,32 @@
+//importing supabase for db connection and React states for methods realization
 import React, {useState, useEffect} from 'react';
 import supabase from "../config/supabaseClient";
 
 const Calendar = () => {
+    //setting state variables to manage the current date, month, year, rehearsal dates, and loading state
     const [currentDate, setCurrentDate] = useState(new Date());
     const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
     const [currentYear, setCurrentYear] = useState(currentDate.getFullYear());
     const [rehearsalDates, setRehearsalDates] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    //array to hold month names
     const monthNames = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
+    //function to check if a year is a leap year
     const isLeapYear = (year) => {
         return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
     };
 
+    //function to get the number of days in February for a given year
     const getFebDays = (year) => {
         return isLeapYear(year) ? 29 : 28;
     };
 
+    //generate the calendar for the current month and year
     const generateCalendar = () => {
         const daysOfMonth = [
             31, getFebDays(currentYear), 31, 30, 31, 30,
@@ -29,6 +35,7 @@ const Calendar = () => {
 
         const firstDay = new Date(currentYear, currentMonth);
 
+        //generate calendar with checking if rehearsal day
         const days = [];
         for (let i = 0; i <= daysOfMonth[currentMonth] + firstDay.getDay() - 1; i++) {
             if (i >= firstDay.getDay()) {
@@ -52,6 +59,7 @@ const Calendar = () => {
         return days;
     };
 
+    //update the current date every second
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentDate(new Date());
@@ -60,6 +68,7 @@ const Calendar = () => {
         return () => clearInterval(intervalId);
     }, []);
 
+    //fetch rehearsal dates when the month or year changes
     useEffect(() => {
         const fetchRehearsalDates = async () => {
             setLoading(true);
@@ -85,6 +94,7 @@ const Calendar = () => {
         fetchRehearsalDates();
     }, [currentMonth, currentYear]);
 
+    //change the month when the user clicks the prev/next buttons
     const changeMonth = (direction) => {
         setLoading(true);
         if (direction === 'prev') {

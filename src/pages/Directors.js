@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import supabase from "../config/supabaseClient";
 import {Link} from "react-router-dom";
+//import DirectorsTable component for displaying director data
 import DirectorsTable from "../tableComponents/DirectorsTable";
 
 const Directors = () => {
@@ -8,6 +9,7 @@ const Directors = () => {
     const [directors, setDirectors] = useState(null);
     const [userRole, setUserRole] = useState(null);
 
+    //fetch directors data from the supabase
     useEffect(() => {
         const fetchDirectors = async () => {
             const {data, error} = await supabase
@@ -26,6 +28,7 @@ const Directors = () => {
         };
         fetchDirectors();
 
+        //get user role from local storage
         const storedUserRole = localStorage.getItem('userRole');
         setUserRole(storedUserRole);
     }, [userRole]);

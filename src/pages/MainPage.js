@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 //------import styles
 import "../styles/main-page.css";
 import "../styles/calendar.css";
@@ -14,7 +14,7 @@ import Calendar from "../pageComponents/Calendar";
 import RepertoireSection from "../pageComponents/RepertoireSection";
 
 const MainPage = () => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(true); //visibility of the additional block
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,13 +24,13 @@ const MainPage = () => {
             (entries) => {
                 entries.forEach(entry => {
                     if (entry.intersectionRatio < 0.90 && isVisible) {
-                        setIsVisible(false);
+                        setIsVisible(false); //hide the additional block if section is not 90% visible
                     } else if (entry.intersectionRatio >= 0.90 && !isVisible) {
                         setIsVisible(true);
                     }
                 });
             },
-            {threshold: 0.90}
+            {threshold: 0.90} //set the threshold for the observer
         );
 
         if (firstSection) {
@@ -44,6 +44,7 @@ const MainPage = () => {
         };
     }, [isVisible]);
 
+    //handlers for button clicks to navigate to different routes
     const handleRedButtonClick = () => {
         navigate('/rehearsalSigning');
     };
@@ -236,9 +237,15 @@ const MainPage = () => {
                         <div className="content-row">
                             <Calendar/>
                             <div className="button-container">
-                                <button className="big-button white-button" onClick={handleFirstButtonClick}>See our concert schedule</button>
-                                <button className="big-button white-button" onClick={handleSecondButtonClick}>How rehearsals are going?</button>
-                                <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a trial rehearsal</button>
+                                <button className="big-button white-button" onClick={handleFirstButtonClick}>See our
+                                    concert schedule
+                                </button>
+                                <button className="big-button white-button" onClick={handleSecondButtonClick}>How
+                                    rehearsals are going?
+                                </button>
+                                <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a
+                                    trial rehearsal
+                                </button>
                             </div>
                         </div>
                     </div>

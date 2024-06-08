@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import '../styles/popup.css';
 import supabase from "../config/supabaseClient";
 
-const SingerPopup = ({ singer, closePopup }) => {
+const SingerPopup = ({singer, closePopup}) => {
     const [userRole, setUserRole] = useState(null);
     const navigate = useNavigate();
 
@@ -21,10 +21,11 @@ const SingerPopup = ({ singer, closePopup }) => {
         });
     };
 
+    //function to handle singer deletion
     const handleDelete = async () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this singer?");
         if (confirmDelete) {
-            const { error } = await supabase
+            const {error} = await supabase
                 .from('singer')
                 .delete()
                 .eq('id_singer', singer.id_singer);
@@ -38,6 +39,7 @@ const SingerPopup = ({ singer, closePopup }) => {
         }
     };
 
+    //function to handle editing singer
     const handleEdit = () => {
         navigate(`/singers/${singer.id_singer}`);
     };
@@ -51,7 +53,7 @@ const SingerPopup = ({ singer, closePopup }) => {
                         <p>Voice: {singer.voice}</p>
                         <p>Date of birth: {formatDate(singer.date_birth)}</p>
                         <p>About me: {singer.singer_bio}</p>
-                        {userRole && (
+                        {userRole && ( /* Edit and delete buttons */
                             <>
                                 <button id="edit-but" onClick={handleEdit}>Edit Singer</button>
                                 <button id="delete-but" onClick={handleDelete}>Delete Singer</button>
@@ -59,7 +61,7 @@ const SingerPopup = ({ singer, closePopup }) => {
                         )}
                     </div>
                     <div className="popup-image">
-                        <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`} />
+                        <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`}/>
                     </div>
                 </div>
                 <div>

@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import '../styles/singers.css';
 
 const Singers = () => {
+    //states
     const [fetchError, setFetchError] = useState(null);
     const [singers, setSingers] = useState(null);
     const [userRole, setUserRole] = useState(null);
@@ -26,27 +27,31 @@ const Singers = () => {
                 setFetchError(null);
             }
         }
-        fetchSingers();
+        fetchSingers(); //fetch singers data on component mount
 
         const storedUserRole = localStorage.getItem('userRole');
         setUserRole(storedUserRole);
-    }, [userRole]);
+    }, [userRole]); //re-fetch singers data when user role changes
     console.log(userRole)
 
+    //function to open the filter window
     const handleOpenFilterWindow = () => {
         setShowFilterWindow(true);
     };
 
+    //function to close the filter window
     const handleCloseFilterWindow = () => {
         setShowFilterWindow(false);
     };
+
+    //function to filter singers by voice
     const handleFilterByVoice = async (voice) => {
         try {
             let data;
             if (voice === 'All') {
-                ({ data } = await supabase.from('singer').select());
+                ({data} = await supabase.from('singer').select());
             } else {
-                ({ data } = await supabase.from('singer').select().eq('voice', voice));
+                ({data} = await supabase.from('singer').select().eq('voice', voice));
             }
 
             setSingers(data);
@@ -70,10 +75,17 @@ const Singers = () => {
                     <div className="filter-window">
                         <h3>Chose your filter option</h3>
                         <div className="filter-options">
-                            <button className="filter-option" onClick={() => handleFilterByVoice('soprano first')}>Soprano 1</button>
-                            <button className="filter-option" onClick={() => handleFilterByVoice('soprano second')}>Soprano 2</button>
-                            <button className="filter-option" onClick={() => handleFilterByVoice('alto first')}>Alto 1</button>
-                            <button className="filter-option" onClick={() => handleFilterByVoice('alto second')}>Alto 2</button>
+                            <button className="filter-option"
+                                    onClick={() => handleFilterByVoice('soprano first')}>Soprano 1
+                            </button>
+                            <button className="filter-option"
+                                    onClick={() => handleFilterByVoice('soprano second')}>Soprano 2
+                            </button>
+                            <button className="filter-option" onClick={() => handleFilterByVoice('alto first')}>Alto 1
+                            </button>
+                            <button className="filter-option" onClick={() => handleFilterByVoice('alto second')}>Alto
+                                2
+                            </button>
                             <button className="filter-option" onClick={() => handleFilterByVoice('bass')}>Bass</button>
                             <button className="filter-option" onClick={() => handleFilterByVoice('All')}>All</button>
                         </div>

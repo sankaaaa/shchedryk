@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 const AddDirector = () => {
+    //initialize navigate for redirecting after form submission and states from each variable from db
     const navigate = useNavigate();
     const [id_dir, setIdDir] = useState('');
     const [dir_name, setDirName] = useState('');
@@ -21,6 +22,7 @@ const AddDirector = () => {
     const [bio, setBIO] = useState('');
     const [formError, setFormError] = useState(null);
 
+    //handle text input changes and prevent numbers
     const handleTextChange = (setter) => (e) => {
         const {value} = e.target;
         if (!/\d/.test(value)) {
@@ -28,23 +30,27 @@ const AddDirector = () => {
         }
     };
 
+    //handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const birthDate = new Date(date_birth);
         const age = new Date().getFullYear() - birthDate.getFullYear();
 
+        //if all fields are filled
         if (!id_dir || !dir_name || !dir_lastname || !dir_patron || !date_birth || !date_start || !role || !study
             || !image_url || !bio || !phone_number || !email || !city || !street) {
             setFormError('Please fill in all fields correctly!');
             return;
         }
 
+        //check if the director's age is within the valid range
         if (age < 20 || age > 80) {
             setFormError('Director must be between 20 and 80 years old!');
             return;
         }
 
+        //insert new director into the database
         const {data, error} = await supabase
             .from('director')
             .insert([{
@@ -69,7 +75,7 @@ const AddDirector = () => {
             setFormError('Error adding director. Please try again.');
         } else {
             setFormError(null);
-            navigate('/directors');
+            navigate('/directors'); //redirect to the directors page on successful submission
         }
     };
 

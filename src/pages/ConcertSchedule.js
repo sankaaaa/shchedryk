@@ -1,18 +1,20 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import supabase from '../config/supabaseClient';
 import '../styles/concertSchedule.css';
 
 const ConcertSchedule = () => {
+    //states to store concert data and error messages
     const [concerts, setConcerts] = useState([]);
     const [fetchError, setFetchError] = useState(null);
 
     useEffect(() => {
+        //fetch concerts data from the supabase with date greater than or equal to the current date and order by date in ascending order
         const fetchConcerts = async () => {
-            const { data, error } = await supabase
+            const {data, error} = await supabase
                 .from('concert')
                 .select('*')
                 .gte('date', new Date().toISOString())
-                .order('date', { ascending: true });
+                .order('date', {ascending: true});
 
             if (error) {
                 setFetchError('Could not fetch concerts');
@@ -25,7 +27,7 @@ const ConcertSchedule = () => {
         };
 
         fetchConcerts();
-    }, []);
+    }, []); //empty dependency array to run useEffect only once when component mounts
 
     return (
         <div className="concert-schedule-page">

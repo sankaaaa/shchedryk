@@ -43,6 +43,7 @@
 .concert-card p {
     margin: 10px 0;
 }
+
 .non-clickable {
     pointer-events: none;
 }
