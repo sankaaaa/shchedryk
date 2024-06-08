@@ -1,3 +1,4 @@
+//importing react, css styles and images
 import React from 'react';
 import "../styles/footer.css";
 import inst11 from '../images/inst11.png';
@@ -6,8 +7,10 @@ import fb11 from '../images/fb11.png';
 
 const Footer = () => {
     return (
+        /* Footer element with class 'footer' */
         <footer className="footer">
             <div className="footer-content">
+                {/* Display current year dynamically */}
                 <p>&copy; {new Date().getFullYear()} SHCHEDRYK. All rights reserved.</p>
                 <div className="contacts">
                     <p>Contacts</p>
@@ -18,6 +21,7 @@ const Footer = () => {
                     shchedryk@gmail.com
                 </div>
                 <div className="media-icons">
+                    {/* Social media icons section with links*/}
                     <a href="https://www.instagram.com/shchedryk_choir/" target="_blank" rel="noopener noreferrer">
                         <img src={inst11} alt="instagram"/>
                     </a>

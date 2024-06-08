@@ -3,19 +3,21 @@ import "../styles/repertoire.css";
 
 const RepertoireSection = () => {
     useEffect(() => {
+        //all elements with the class 'progressbar'
         const progressBars = document.querySelectorAll(".progressbar");
 
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
+                //if the progress bar is in the viewport
                 if (entry.isIntersecting) {
-                    const progressBar = entry.target;
+                    const progressBar = entry.target; //get the percentage value
                     const percentage = progressBar.getAttribute("aria-valuenow");
-                    progressBar.style.width = percentage + "%";
+                    progressBar.style.width = percentage + "%"; //set the width of the progress bar
                     progressBar.style.background = "linear-gradient(to right, #121111, #B90000)";
-                    observer.unobserve(progressBar);
+                    observer.unobserve(progressBar); //stop observing the progress bar
                 }
             });
-        }, {threshold: 1.0});
+        }, {threshold: 1.0}); //observer options with a threshold of 1.0 (fully visible)
 
         progressBars.forEach(progressBar => {
             observer.observe(progressBar);
@@ -30,6 +32,7 @@ const RepertoireSection = () => {
 
     return (
         <div className="container">
+            {/* Each barWrapper represents a category with its progress bar and percentage */}
             <div className="barWrapper">
                 <h3 className="progressText">Ukrainian folklore</h3>
                 <div className="single-progress-txt">

@@ -1,6 +1,6 @@
 import '../styles/popup.css';
 
-const TrialRehearsalPopup = ({ signup, closePopup }) => {
+const TrialRehearsalPopup = ({signup, closePopup}) => {
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-GB', {
@@ -10,6 +10,7 @@ const TrialRehearsalPopup = ({ signup, closePopup }) => {
         });
     };
 
+    //function to format date and time
     const formatDateTime = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleString('en-GB', {
@@ -22,7 +23,7 @@ const TrialRehearsalPopup = ({ signup, closePopup }) => {
     };
 
     return (
-        <div className="popup-overlay" onClick={closePopup}>
+        <div className="popup-overlay" onClick={closePopup}> {/* Popup content */}
             <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                 <div className="popup-details">
                     <div className="popup-text">

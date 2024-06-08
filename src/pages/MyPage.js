@@ -3,6 +3,7 @@ import supabase from "../config/supabaseClient";
 import "../styles/my-page.css";
 
 const MyPage = () => {
+    //state variables
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -12,6 +13,7 @@ const MyPage = () => {
     const [passwordError, setPasswordError] = useState('');
     const [passwordSuccess, setPasswordSuccess] = useState('');
 
+    //fetch user data from supabase on component mount
     useEffect(() => {
         const fetchUserData = async () => {
             const userId = localStorage.getItem('userId');
@@ -27,6 +29,7 @@ const MyPage = () => {
                 let table;
                 let column;
 
+                //determine table and column based on user role
                 if (userRole === 'conductor' || userRole === 'pianist' || userRole === 'teacher') {
                     table = 'director';
                     column = 'id_dir';
@@ -35,6 +38,7 @@ const MyPage = () => {
                     column = 'id_admin';
                 }
 
+                //fetch user data from supabase
                 const {data, error} = await supabase
                     .from(table)
                     .select()
@@ -58,11 +62,13 @@ const MyPage = () => {
         fetchUserData();
     }, []);
 
+    //password change form submission
     const handleChangePassword = async (e) => {
         e.preventDefault();
         setPasswordError('');
         setPasswordSuccess('');
 
+        //check if new passwords match
         if (newPassword !== confirmPassword) {
             setPasswordError('New passwords do not match.');
             return;
@@ -101,7 +107,7 @@ const MyPage = () => {
         }
     };
 
-
+//render loading message while data is being fetched
     if (loading) {
         return <div>Loading...</div>;
     }

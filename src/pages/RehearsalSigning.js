@@ -1,9 +1,10 @@
 import supabase from "../config/supabaseClient";
-import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import {useEffect, useState} from "react";
+import {useNavigate} from 'react-router-dom';
 import "../styles/rehearsalSigning.css";
 
 const RehearsalSigning = () => {
+    //states
     const [dates, setDates] = useState([]);
     const [selectedDate, setSelectedDate] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -16,12 +17,13 @@ const RehearsalSigning = () => {
     const [singer_phone, setSingerPhone] = useState('');
     const [birthDate, setBirthDate] = useState('');
 
+    //fetch rehearsal dates from Supabase on component mount
     useEffect(() => {
         fetchRehearsalDates();
     }, []);
 
     const fetchRehearsalDates = async () => {
-        const { data, error } = await supabase
+        const {data, error} = await supabase
             .from('rehearsal')
             .select('date')
             .gt('date', new Date().toISOString());
@@ -33,15 +35,17 @@ const RehearsalSigning = () => {
         }
     };
 
+    //function to handle text input change
     const handleTextChange = (setter) => (e) => {
-        const { value } = e.target;
+        const {value} = e.target;
         if (/^[a-zA-Zа-яА-ЯёЁіІїЇєЄ]*$/.test(value)) {
             setter(value);
         }
     };
 
+    //function to handle phone number input change
     const handlePhoneChange = (e) => {
-        const { value } = e.target;
+        const {value} = e.target;
         if (value.startsWith('+') && value.length <= 13 && /^[\d+]*$/.test(value)) {
             setPhoneError('');
             setSingerPhone(value);
@@ -50,8 +54,9 @@ const RehearsalSigning = () => {
         }
     };
 
+    //function to handle birth date input change
     const handleBirthDateChange = (e) => {
-        const { value } = e.target;
+        const {value} = e.target;
         const selectedDate = new Date(value);
         const today = new Date();
         const minDate = new Date();
@@ -65,12 +70,14 @@ const RehearsalSigning = () => {
         }
     };
 
+    //function to format rehearsal date for display
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        const options = { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' };
+        const options = {day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit'};
         return date.toLocaleString('en-GB', options).replace(',', ' at');
     };
 
+    //handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -82,7 +89,7 @@ const RehearsalSigning = () => {
         const formObject = Object.fromEntries(formData.entries());
         formObject.selectedDate = selectedDate;
 
-        const { error } = await supabase
+        const {error} = await supabase
             .from('rehearsal_signings')
             .insert([
                 {
@@ -121,7 +128,7 @@ const RehearsalSigning = () => {
                                 name="name"
                                 value={singer_name}
                                 onChange={handleTextChange(setSingerName)}
-                                required />
+                                required/>
                         </div>
                         <div>
                             <label htmlFor="surname">Surname</label>
@@ -131,7 +138,7 @@ const RehearsalSigning = () => {
                                 name="surname"
                                 value={singer_lastname}
                                 onChange={handleTextChange(setSingerLastname)}
-                                required />
+                                required/>
                         </div>
                         <div>
                             <label htmlFor="patronymic">Patronymic</label>
@@ -141,7 +148,7 @@ const RehearsalSigning = () => {
                                 name="patronymic"
                                 value={singer_patron}
                                 onChange={handleTextChange(setSingerPatron)}
-                                required />
+                                required/>
                         </div>
                         <div>
                             <label htmlFor="birth_date">Birth Date</label>
@@ -151,12 +158,12 @@ const RehearsalSigning = () => {
                                 name="birth_date"
                                 value={birthDate}
                                 onChange={handleBirthDateChange}
-                                required />
+                                required/>
                             {birthDateError && <p className="error">{birthDateError}</p>}
                         </div>
                         <div>
                             <label htmlFor="email">E-mail</label>
-                            <input type="email" id="email" name="email" required />
+                            <input type="email" id="email" name="email" required/>
                         </div>
                         <div>
                             <label htmlFor="phone">Phone Number</label>
@@ -166,7 +173,7 @@ const RehearsalSigning = () => {
                                 name="phone"
                                 value={singer_phone}
                                 onChange={handlePhoneChange}
-                                required />
+                                required/>
                             {phoneError && <p className="error">{phoneError}</p>}
                         </div>
                         <div>

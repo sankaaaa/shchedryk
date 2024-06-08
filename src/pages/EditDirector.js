@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import supabase from "../config/supabaseClient";
 
 const EditDirector = () => {
+    //initialize navigate for redirecting after form submission and states from each variable from db
     const navigate = useNavigate();
     const {id_dir} = useParams();
     const [dir_name, setDirName] = useState('');
@@ -21,6 +22,7 @@ const EditDirector = () => {
     const [formError, setFormError] = useState(null);
 
     useEffect(() => {
+        //fetch the director's data from the database based on the director ID
         const fetchSinger = async () => {
             const {data, error} = await supabase
                 .from('director')
@@ -31,6 +33,7 @@ const EditDirector = () => {
             if (error) {
                 navigate('/directors', {replace: true});
             } else {
+                //set the state with the fetched data
                 setDirName(data.dir_name);
                 setDirLastname(data.dir_lastname);
                 setDirPatron(data.dir_patron);
@@ -54,6 +57,7 @@ const EditDirector = () => {
         setter(value);
     };
 
+    //handler to submit the form
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -71,6 +75,7 @@ const EditDirector = () => {
             return;
         }
 
+        //update the director's data in the database
         const {data, error} = await supabase
             .from('director')
             .update({

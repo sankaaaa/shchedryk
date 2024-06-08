@@ -1,9 +1,11 @@
+//navigation and useLocation to get the current path
 import React from 'react';
 import {Link, useLocation} from 'react-router-dom';
 
 function Header({toggleMenu, isOpen, userRole}) {
     const location = useLocation();
 
+    //handle smooth scrolling to target sections
     const handleScroll = (e, targetId) => {
         e.preventDefault();
         const targetElement = document.getElementById(targetId);
@@ -24,7 +26,7 @@ function Header({toggleMenu, isOpen, userRole}) {
                     </div>
                 )}
             </div>
-            {location.pathname === '/main' && (
+            {location.pathname === '/main' && ( // Conditionally render links only on the main page
                 <div className="header-links">
                     <a href="#section2" onClick={(e) => handleScroll(e, 'section2')}>History</a>
                     <a href="#section3" onClick={(e) => handleScroll(e, 'section3')}>Calendar</a>

@@ -4,6 +4,7 @@ import "../styles/add-form.css";
 import {useNavigate} from "react-router-dom";
 
 const AddSinger = () => {
+    //initialize navigate for redirecting after form submission and states from each variable from db
     const navigate = useNavigate();
     const [id_singer, setIdSinger] = useState('');
     const [singer_name, setSingerName] = useState('');
@@ -15,6 +16,7 @@ const AddSinger = () => {
     const [singer_bio, setBIO] = useState('');
     const [formError, setFormError] = useState(null);
 
+    //handle text input changes and prevent numbers
     const handleTextChange = (setter) => (e) => {
         const {value} = e.target;
         if (!/\d/.test(value)) {
@@ -22,6 +24,7 @@ const AddSinger = () => {
         }
     };
 
+    //handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -38,6 +41,7 @@ const AddSinger = () => {
             return;
         }
 
+        //insert new director into the database
         const {data, error} = await supabase
             .from('singer')
             .insert([{
