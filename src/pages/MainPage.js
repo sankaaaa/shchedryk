@@ -14,7 +14,10 @@ import Calendar from "../pageComponents/Calendar";
 import RepertoireSection from "../pageComponents/RepertoireSection";
 
 const MainPage = () => {
+
     const [isVisible, setIsVisible] = useState(true); //visibility of the additional block
+    const [userRole, setUserRole] = useState(null);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,6 +35,9 @@ const MainPage = () => {
             },
             {threshold: 0.90} //set the threshold for the observer
         );
+
+        const userRoleFromLocalStorage = localStorage.getItem('userRole');
+        setUserRole(userRoleFromLocalStorage);
 
         if (firstSection) {
             observer.observe(firstSection);
@@ -57,6 +63,9 @@ const MainPage = () => {
         navigate('/rehearsalDescription');
     };
 
+    const handleChangeScheduleClick = () => {
+        navigate('/rehearsalSchedule');
+    };
 
     return (
         <div className="container">
@@ -237,15 +246,13 @@ const MainPage = () => {
                         <div className="content-row">
                             <Calendar/>
                             <div className="button-container">
-                                <button className="big-button white-button" onClick={handleFirstButtonClick}>See our
-                                    concert schedule
-                                </button>
-                                <button className="big-button white-button" onClick={handleSecondButtonClick}>How
-                                    rehearsals are going?
-                                </button>
-                                <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a
-                                    trial rehearsal
-                                </button>
+
+                                <button className="big-button white-button" onClick={handleFirstButtonClick}>See our concert schedule</button>
+                                <button className="big-button white-button" onClick={handleSecondButtonClick}>How rehearsals are going?</button>
+                                <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a trial rehearsal</button>
+                                {userRole && (
+                                    <button className="big-button white-button" onClick={handleChangeScheduleClick}>Change rehearsals schedule</button>
+                                )}
                             </div>
                         </div>
                     </div>

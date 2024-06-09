@@ -1,6 +1,8 @@
-import supabase from "../config/supabaseClient";
-import {useEffect, useState} from "react";
-import TrialRehearsalTable from "../tableComponents/TrialRehearsalTable";
+
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import supabase from '../config/supabaseClient';
+import TrialRehearsalTable from '../tableComponents/TrialRehearsalTable';
 import '../styles/rehearsal-signups.css';
 
 const TrialRehearsalList = () => {
@@ -13,7 +15,8 @@ const TrialRehearsalList = () => {
             try {
                 const {data: signupsData, error} = await supabase
                     .from('rehearsal_signings')
-                    .select('*');
+                    .select('*')
+                    .order('chosen_rehearsal', { ascending: true });
 
                 if (error) {
                     setFetchError('Could not fetch signups');

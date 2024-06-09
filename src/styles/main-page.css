@@ -326,11 +326,11 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px; /* Відступ між календарем і кнопками */
+    gap: 20px;
 }
 
 .button-container {
-    flex: 2; /* Контейнер для кнопок займає дві третини */
+    flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -344,8 +344,8 @@ body, html {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     text-align: center;
-    width: 80%; /* Ширина кнопок */
-    margin: 10px 0; /* Відступ між кнопками */
+    width: 80%;
+    margin: 10px 0;
     border: 2px solid transparent;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
