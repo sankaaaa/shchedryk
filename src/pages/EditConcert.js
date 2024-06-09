@@ -1,45 +1,41 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {useParams, useNavigate} from 'react-router-dom';
 import supabase from '../config/supabaseClient';
 import '../styles/editConcert.css';
+
 // Concert editing class, where according to on which card you clicked on edit you get needed info and can change on which you need
 const EditConcert = () => {
-    const { id } = useParams();
+    const {id_conc} = useParams();
     const [date, setDate] = useState('');
     const [country, setCountry] = useState('');
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
     const [link, setLink] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         // Getting concert info according to id of chosen concert
         const fetchConcert = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('concert')
-                    .select('*')
-                    .eq('id_conc', id)
-                    .single();
+            const {data, error} = await supabase
+                .from('concert')
+                .select()
+                .eq('id_conc', id_conc)
+                .single();
 
-                if (error) {
-                    throw error;
-                }
-
+            if (error) {
+                console.log(error)
+            } else {
                 setDate(data.date);
                 setCountry(data.country);
                 setDescription(data.description);
                 setAddress(data.address);
                 setLink(data.link);
-            } catch (error) {
-                setError('Error fetching concert.');
-                console.error(error);
             }
         };
-
         fetchConcert();
-    }, [id]);
+    }, [id_conc, navigate]);
+
     // Handling submit with saving all the edits
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -50,10 +46,10 @@ const EditConcert = () => {
                 return;
             }
 
-            const { error } = await supabase
+            const {error} = await supabase
                 .from('concert')
-                .update({ date, country, description, address, link })
-                .eq('id_conc', id);
+                .update({date, country, description, address, link})
+                .eq('id_conc', id_conc);
 
             if (error) {
                 throw error;

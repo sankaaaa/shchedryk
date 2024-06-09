@@ -47,6 +47,15 @@
     text-align: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.concert-card .buttons {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .concert-card.clickable:hover {
@@ -65,16 +74,17 @@
     margin: 10px 0;
 }
 
-.concert-card .edit-button,
-.concert-card .delete-button {
+.concert-card .ed-button,
+.concert-card .del-button {
     background-color: #B90000;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
     transition: background-color 0.3s ease;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .concert-card .edit-button:hover,

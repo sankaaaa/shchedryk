@@ -1,6 +1,5 @@
- 
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 import supabase from '../config/supabaseClient';
 import ConcertCard from '../pages/ConcertCard';
@@ -13,13 +12,13 @@ const ConcertSchedule = () => {
     const [userRole, setUserRole] = useState(null);
     const navigate = useNavigate();
 
-        //fetch concerts data from the supabase with date greater than or equal to the current date and order by date in ascending order
-        const fetchConcerts = async () => {
-            const {data, error} = await supabase
-                .from('concert')
-                .select('*')
-                .gte('date', new Date().toISOString())
-                .order('date', {ascending: true});
+    //fetch concerts data from the supabase with date greater than or equal to the current date and order by date in ascending order
+    const fetchConcerts = async () => {
+        const {data, error} = await supabase
+            .from('concert')
+            .select()
+            .gte('date', new Date().toISOString())
+            .order('date', {ascending: true});
 
         if (error) {
             setFetchError('Could not fetch concerts');
@@ -56,7 +55,6 @@ const ConcertSchedule = () => {
                         key={concert.id_conc}
                         concert={concert}
                         fetchConcerts={fetchConcerts}
-                        userRole={userRole}
                     />
                 ))}
             </div>
