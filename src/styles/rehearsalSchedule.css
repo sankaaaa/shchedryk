@@ -1,0 +1,63 @@
+.rehearsal-schedule-page {
+    padding: 20px;
+    padding-top: 150px;
+    text-align: center;
+}
+
+.rehearsal-schedule-page h1 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #000000;
+}
+
+.rehearsal-month-section {
+    margin-bottom: 40px;
+}
+
+.rehearsal-month-section h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #000000;
+}
+
+.rehearsal-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.rehearsal-card {
+    position: relative;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rehearsal-card:hover {
+    background-color: #f9f9f9;
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+    color: darkred;
+}
+.rehearsal-card p {
+    margin: 10px 0;
+    color: #333;
+}
