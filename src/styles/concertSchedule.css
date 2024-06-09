@@ -1,6 +1,5 @@
 .concert-schedule-page {
-    padding: 20px;
-    padding-top: 150px;
+    padding: 150px 20px 20px;
     text-align: center;
 }
 
@@ -36,7 +35,6 @@
     gap: 20px;
     justify-content: center;
     max-height: calc(100vh - 250px);
-    overflow-y: auto;
 }
 
 .concert-card {
@@ -82,6 +80,7 @@
 .concert-card .edit-button:hover,
 .concert-card .delete-button:hover {
     background-color: #8C0101;
+
 }
 
 .concert-card .edit-button {

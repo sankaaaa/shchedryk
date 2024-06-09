@@ -4,6 +4,7 @@ import supabase from "../config/supabaseClient";
 import "../styles/login.css";
 
 const Login = ({setAuthenticated, setUserRole}) => {
+    //set states for input and user roles
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -12,12 +13,13 @@ const Login = ({setAuthenticated, setUserRole}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            //fetch director data from the database
             const {data: directorData} = await supabase
                 .from('director')
                 .select('id_dir, login, password, role')
                 .eq('login', username)
                 .eq('password', password)
-                .single();
+                .single(); //fetch a single record matching the username and password
 
             if (directorData) {
                 setAuthenticated(true);
@@ -29,6 +31,7 @@ const Login = ({setAuthenticated, setUserRole}) => {
                 return;
             }
 
+            //fetch administrator data from the database
             const {data: adminData} = await supabase
                 .from('administrator')
                 .select('id_admin, login, password')
@@ -39,6 +42,7 @@ const Login = ({setAuthenticated, setUserRole}) => {
             if (adminData) {
                 setAuthenticated(true);
                 setUserRole(adminData.login);
+                //store user role and ID in localStorage
                 localStorage.setItem('userRole', adminData.login);
                 localStorage.setItem('userId', adminData.id_admin);
                 localStorage.setItem('userData', JSON.stringify(adminData));

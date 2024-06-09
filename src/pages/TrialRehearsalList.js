@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import supabase from '../config/supabaseClient';
@@ -10,8 +11,9 @@ const TrialRehearsalList = () => {
 
     useEffect(() => {
         const fetchSignups = async () => {
+            //fetch all signups data
             try {
-                const { data: signupsData, error } = await supabase
+                const {data: signupsData, error} = await supabase
                     .from('rehearsal_signings')
                     .select('*')
                     .order('chosen_rehearsal', { ascending: true });
@@ -32,10 +34,10 @@ const TrialRehearsalList = () => {
         const removeExpiredSignups = async () => {
             try {
                 const currentDate = new Date();
-                const { data: expiredSignups, error } = await supabase
+                const {data: expiredSignups, error} = await supabase
                     .from('rehearsal_signings')
                     .delete()
-                    .lt('chosen_rehearsal', currentDate.toISOString());
+                    .lt('chosen_rehearsal', currentDate.toISOString()); //delete expired signups
 
                 if (error) {
                     console.error('Error removing expired signups:', error.message);
@@ -47,7 +49,7 @@ const TrialRehearsalList = () => {
             }
         };
 
-        fetchSignups();
+        fetchSignups(); //fetch signups data on component mount
         removeExpiredSignups();
     }, []);
 
@@ -58,7 +60,7 @@ const TrialRehearsalList = () => {
             {signups.length === 0 && <p>No signups available.</p>}
             <div className="signups-grid">
                 {signups.map((signup) => (
-                    <TrialRehearsalTable key={signup.id} signup={signup} />
+                    <TrialRehearsalTable key={signup.id} signup={signup}/>
                 ))}
             </div>
         </div>

@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import TrialRehearsalPopup from '../popup/TrialRehearsalPopup';
 import '../styles/signup-card.css';
 
-const RehearsalSignupCard = ({ signup }) => {
+const RehearsalSignupCard = ({signup}) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const openPopup = () => {
@@ -30,7 +30,7 @@ const RehearsalSignupCard = ({ signup }) => {
                     <p>Rehearsal Date: {formatDate(signup.chosen_rehearsal)}</p>
                 </div>
             </div>
-            {isPopupOpen && <TrialRehearsalPopup signup={signup} closePopup={closePopup} />}
+            {isPopupOpen && <TrialRehearsalPopup signup={signup} closePopup={closePopup}/>}
         </>
     )
 }

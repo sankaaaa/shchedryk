@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {useNavigate, useParams} from 'react-router-dom';
 import supabase from "../config/supabaseClient";
 
 const EditSinger = () => {
+    //initialize navigate for redirecting after form submission and states from each variable from db
     const navigate = useNavigate();
-    const { id_singer } = useParams(); // Get id_singer from route params
+    const {id_singer} = useParams(); // Get id_singer from route params
     const [singer_name, setSingerName] = useState('');
     const [singer_lastname, setSingerLastname] = useState('');
     const [singer_patron, setSingerPatron] = useState('');
@@ -15,15 +16,16 @@ const EditSinger = () => {
     const [formError, setFormError] = useState(null);
 
     useEffect(() => {
+        //fetch the singer's data from the database based on the singer ID
         const fetchSinger = async () => {
-            const { data, error } = await supabase
+            const {data, error} = await supabase
                 .from('singer')
                 .select()
                 .eq('id_singer', id_singer)
                 .single();
 
             if (error) {
-                navigate('/singers', { replace: true });
+                navigate('/singers', {replace: true});
             } else {
                 setSingerName(data.singer_name);
                 setSingerLastname(data.singer_lastname);
@@ -38,7 +40,7 @@ const EditSinger = () => {
     }, [id_singer, navigate]);
 
     const handleTextChange = (setter) => (e) => {
-        const { value } = e.target;
+        const {value} = e.target;
         setter(value);
     };
 
@@ -58,7 +60,7 @@ const EditSinger = () => {
             return;
         }
 
-        const { data, error } = await supabase
+        const {data, error} = await supabase
             .from('singer')
             .update({
                 singer_name,

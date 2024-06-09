@@ -1,21 +1,25 @@
+ 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import supabase from '../config/supabaseClient';
 import ConcertCard from '../pages/ConcertCard';
 import '../styles/concertSchedule.css';
 
 const ConcertSchedule = () => {
+    //states to store concert data and error messages
     const [concerts, setConcerts] = useState([]);
     const [fetchError, setFetchError] = useState(null);
     const [userRole, setUserRole] = useState(null);
     const navigate = useNavigate();
 
-    const fetchConcerts = async () => {
-        const { data, error } = await supabase
-            .from('concert')
-            .select('*')
-            .gte('date', new Date().toISOString())
-            .order('date', { ascending: true });
+        //fetch concerts data from the supabase with date greater than or equal to the current date and order by date in ascending order
+        const fetchConcerts = async () => {
+            const {data, error} = await supabase
+                .from('concert')
+                .select('*')
+                .gte('date', new Date().toISOString())
+                .order('date', {ascending: true});
 
         if (error) {
             setFetchError('Could not fetch concerts');
@@ -31,7 +35,7 @@ const ConcertSchedule = () => {
         fetchConcerts();
         const userRoleFromLocalStorage = localStorage.getItem('userRole');
         setUserRole(userRoleFromLocalStorage);
-    }, []);
+    }, []); //empty dependency array to run useEffect only once when component mounts
 
     const handleAddConcert = () => {
         navigate('/addConcert');

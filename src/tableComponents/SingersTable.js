@@ -1,8 +1,8 @@
 import '../styles/singer-card.css';
-import { useState } from 'react';
+import {useState} from 'react';
 import Popup from '../popup/SingerPopup';
 
-const SingerCard = ({ singer }) => {
+const SingerCard = ({singer}) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const openPopup = () => {
@@ -31,10 +31,10 @@ const SingerCard = ({ singer }) => {
                     <p>Date of birth: {formatDate(singer.date_birth)}</p>
                 </div>
                 <div className="right-singer-card">
-                    <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`} />
+                    <img src={singer.image_url} alt={`${singer.singer_name} ${singer.singer_lastname}`}/>
                 </div>
             </div>
-            {isPopupOpen && <Popup singer={singer} closePopup={closePopup} />}
+            {isPopupOpen && <Popup singer={singer} closePopup={closePopup}/>}
         </>
     )
 }
