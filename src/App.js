@@ -4,6 +4,7 @@ import Singers from "./pages/Singers";
 import Directors from "./pages/Directors";
 import RehearsalSigning from "./pages/RehearsalSigning";
 import RehearsalDescription from "./pages/RehearsalDescription"
+import RehearsalSchedule from "./pages/RehearsalSchedule"
 import TrialRehearsalList from "./pages/TrialRehearsalList";
 import MainPage from "./pages/MainPage";
 import Header from './pageComponents/Header';
@@ -16,6 +17,8 @@ import AddSinger from "./pages/AddSinger";
 import EditSinger from "./pages/EditSinger";
 import AddDirector from "./pages/AddDirector";
 import EditDirector from "./pages/EditDirector";
+import AddConcert from "./pages/AddConcert";
+import EditConcert from "./pages/EditConcert";
 import MyPage from "./pages/MyPage";
 
 function App() {
@@ -76,6 +79,14 @@ function App() {
                 )
                 }
                 {userRole && (
+                    <Link to="/concertSchedule" onClick={toggleMenu}>Concert Schedule</Link>
+                )
+                }
+                {userRole && (
+                    <Link to="/rehearsalSchedule" onClick={toggleMenu}>Rehearsal Schedule</Link>
+                )
+                }
+                {userRole && (
                     <Link to="/my-page" onClick={toggleMenu}>My Page</Link>
                 )
                 }
@@ -106,8 +117,11 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/rehearsalSigning" element={<RehearsalSigning/>}/>
                 <Route path="/main" element={<MainPage/>}/>
                 <Route path="/rehearsalDescription" element={<RehearsalDescription/>}/>
+                <Route path="/rehearsalSchedule" element={<RehearsalSchedule/>}/>
                 <Route path="/trialRehearsals" element={<TrialRehearsalList/>}/>
                 <Route path="/concertSchedule" element={<ConcertSchedule/>}/>
+                <Route path="/addConcert" element={<AddConcert/>}/>
+                <Route path="/editConcert/:id" element={<EditConcert/>}/>
                 <Route path="/add-singer" element={<AddSinger/>}/>
                 <Route path="/singers/:id_singer" element={<EditSinger/>}/>
                 <Route path="/add-director" element={<AddDirector/>}/>

@@ -15,6 +15,7 @@ import RepertoireSection from "../pageComponents/RepertoireSection";
 
 const MainPage = () => {
     const [isVisible, setIsVisible] = useState(true);
+    const [userRole, setUserRole] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,6 +33,9 @@ const MainPage = () => {
             },
             {threshold: 0.90}
         );
+
+        const userRoleFromLocalStorage = localStorage.getItem('userRole');
+        setUserRole(userRoleFromLocalStorage);
 
         if (firstSection) {
             observer.observe(firstSection);
@@ -56,6 +60,9 @@ const MainPage = () => {
         navigate('/rehearsalDescription');
     };
 
+    const handleChangeScheduleClick = () => {
+        navigate('/rehearsalSchedule');
+    };
 
     return (
         <div className="container">
@@ -239,6 +246,9 @@ const MainPage = () => {
                                 <button className="big-button white-button" onClick={handleFirstButtonClick}>See our concert schedule</button>
                                 <button className="big-button white-button" onClick={handleSecondButtonClick}>How rehearsals are going?</button>
                                 <button className="big-button red-button" onClick={handleRedButtonClick}>Sign for a trial rehearsal</button>
+                                {userRole && (
+                                    <button className="big-button white-button" onClick={handleChangeScheduleClick}>Change rehearsals schedule</button>
+                                )}
                             </div>
                         </div>
                     </div>
