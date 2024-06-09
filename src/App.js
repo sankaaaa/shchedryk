@@ -121,7 +121,7 @@ function RoutesComponent({authenticated, setAuthenticated, setUserRole}) {
                 <Route path="/trialRehearsals" element={<TrialRehearsalList/>}/>
                 <Route path="/concertSchedule" element={<ConcertSchedule/>}/>
                 <Route path="/addConcert" element={<AddConcert/>}/>
-                <Route path="/editConcert/:id" element={<EditConcert/>}/>
+                <Route path="/editConcert/:id_conc" element={<EditConcert/>}/>
                 <Route path="/add-singer" element={<AddSinger/>}/>
                 <Route path="/singers/:id_singer" element={<EditSinger/>}/>
                 <Route path="/add-director" element={<AddDirector/>}/>
