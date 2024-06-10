@@ -33,10 +33,10 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
     width: 250px;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 40px 15px 15px;
 }
 
 .rehearsal-card:hover {
@@ -57,10 +57,12 @@
 .delete-button:hover {
     color: darkred;
 }
+
 .rehearsal-card p {
     margin: 10px 0;
     color: #333;
 }
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -114,4 +116,21 @@
 .edit-button:hover, .delete-button:hover {
     text-decoration: none;
     color: #007bff;
+}
+
+.add-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #B90000;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    max-width: 20%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.add-button:hover {
+    background-color: #8C0101;
 }

@@ -72,6 +72,7 @@ const RehearsalSchedule = () => {
             } else {
                 setRehearsals(rehearsals.filter(rehearsal => rehearsal.id !== rehearsalId));
             }
+            window.location.reload();
         }
     };
 
@@ -107,7 +108,7 @@ const RehearsalSchedule = () => {
     return (
         <div className="rehearsal-schedule-page">
             <h1>Upcoming Rehearsals</h1>
-            <button onClick={() => setShowAddModal(true)}>Add Rehearsal</button>
+            <button className="add-button" onClick={() => setShowAddModal(true)}>Add Rehearsal</button>
             {fetchError && <p>{fetchError}</p>}
             {Object.keys(groupedRehearsals).length === 0 && <p>There are no upcoming rehearsals.</p>}
             {Object.keys(groupedRehearsals).map((monthYear) => (
@@ -117,7 +118,7 @@ const RehearsalSchedule = () => {
                         {groupedRehearsals[monthYear].map((rehearsal) => (
                             <div key={rehearsal.id_reh} className="rehearsal-card">
                                 <div className="edit-delete-buttons">
-                                    <div className="edit-button" onClick={() => handleEdit(rehearsal)}>✎</div>
+                                    {/*<div className="edit-button" onClick={() => handleEdit(rehearsal)}>✎</div>*/}
                                     <div className="delete-button" onClick={() => deleteRehearsal(rehearsal.id_reh)}>❌</div>
                                 </div>
                                 <p><strong>Date of rehearsal:</strong> {formatDate(rehearsal.date)}</p>

@@ -9,16 +9,20 @@ const EditRehearsalModal = ({ rehearsal, onClose, onSave, setRehearsals }) => {
     const [duration, setDuration] = useState('');
 
     useEffect(() => {
-        const startDate = new Date(rehearsal.date);
-        setDate(startDate.toISOString().split('T')[0]);
-        setStartTime(startDate.toTimeString().slice(0, 5));
+        if (rehearsal) {
+            const startDate = new Date(rehearsal.date);
+            setDate(startDate.toISOString().split('T')[0]);
+            setStartTime(startDate.toTimeString().slice(0, 5));
 
-        const hours = parseInt(rehearsal.duration.split(' ')[0]);
-        const endDate = new Date(startDate);
-        endDate.setHours(endDate.getHours() + hours);
-        setEndTime(endDate.toTimeString().slice(0, 5));
+            if (rehearsal.duration) {
+                const hours = parseInt(rehearsal.duration.split(' ')[0]);
+                const endDate = new Date(startDate);
+                endDate.setHours(endDate.getHours() + hours);
+                setEndTime(endDate.toTimeString().slice(0, 5));
 
-        setDuration(rehearsal.duration);
+                setDuration(rehearsal.duration);
+            }
+        }
     }, [rehearsal]);
 
     const handleSubmit = async (e) => {
@@ -42,19 +46,39 @@ const EditRehearsalModal = ({ rehearsal, onClose, onSave, setRehearsals }) => {
             date: newStartDate.toISOString(),
             duration: `${(newEndDate - newStartDate) / 3600000} hours`
         };
-        onSave(updatedRehearsal);
+
+        const { data, error } = await supabase
+            .from('rehearsal')
+            .update({
+                date: updatedRehearsal.date,
+                duration: updatedRehearsal.duration,
+            })
+            .eq('id_reh', rehearsal.id_reh);
+
+        if (error) {
+            console.error('Error updating rehearsal:', error.message);
+        } else {
+            onSave(data[0]);
+            setRehearsals(prevRehearsals =>
+                prevRehearsals.map(r => r.id_reh === rehearsal.id_reh ? data[0] : r)
+            );
+            onClose();
+        }
     };
 
     const handleDelete = async () => {
         const confirmation = window.confirm('Are you sure you want to delete this rehearsal?');
         if (confirmation) {
-            const { error } = await supabase.from('rehearsal').delete().eq('id', rehearsal.id);
+            const { error } = await supabase
+                .from('rehearsal')
+                .delete()
+                .eq('id_reh', rehearsal.id_reh);
             if (error) {
                 console.error('Error deleting rehearsal:', error.message);
             } else {
                 onClose();
                 setRehearsals(prevRehearsals =>
-                    prevRehearsals.filter(prevRehearsal => prevRehearsal.id !== rehearsal.id)
+                    prevRehearsals.filter(prevRehearsal => prevRehearsal.id_reh !== rehearsal.id_reh)
                 );
             }
         }
